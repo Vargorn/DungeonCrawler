@@ -13,7 +13,7 @@ void Game::initMonsterNames() {
 	this->monsterNames = {"Goblin", "Ogre", "Orc", "Troll", "Banshee", "Chimera", "Vampire", "Shoggoth", "Fishman", "Centaur", "Cerberus", "Harpy" };
 	this->monsterNicknames = { "Sneeky", "Crazy", "Big", "Fat", "Annoying", "Terrifying", "Smart", "Drunk", "Stinky", "Sticky", "Lame", "Cocky" };
 	this->monsterClasses = {"Skirmisher", "Mage", "Ambusher", "Reaper", "Leader", "Dispoiler", "Arsonist", "Lunatic", "Nightlord"};
-	this->bossNames = { "Yogsothoth", "Dagon", "Nyarlathotep", "Cthulhu", "Alduin", "Nazgul", "Griffith" };
+	this->bossNames = {"Yogsothoth", "Dagon", "Nyarlathotep", "Cthulhu", "Alduin", "Nazgul", "Griffith" };
 }
 std::string Game::getRandomName(bool isBoss) {
 	if (isBoss == false) {

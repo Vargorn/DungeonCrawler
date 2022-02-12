@@ -14,6 +14,8 @@ private:
 public:
 	Enemy(std::string name, const int & playerLvl);	
 	Enemy();
+	void setStats();
+	void showStats();
 };
 
 

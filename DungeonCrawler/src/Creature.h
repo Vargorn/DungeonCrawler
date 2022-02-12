@@ -1,8 +1,11 @@
 #pragma once
 #include <iostream>
+
+
 class Creature
 {
 protected:
+	unsigned int level;
 	unsigned int strength;
 	unsigned int endurance;
 	unsigned int agility;
@@ -16,5 +19,9 @@ protected:
 	int staminaRegen;
 	int dodgeChance;
 	int critHit;
+
+public: 
+	void updateStats();
 };
+
 

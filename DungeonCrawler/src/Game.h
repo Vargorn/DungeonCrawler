@@ -5,7 +5,7 @@
 class Game
 {
 private:
-	Player player;
+	//Player player;
 	Enemy enemy;
 	std::string name;
 	std::vector<std::string> monsterNames;
