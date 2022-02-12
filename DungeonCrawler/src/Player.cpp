@@ -1,5 +1,6 @@
 #include "Player.h"
 //to do dialog, story, intoduction.
+
 Player::Player()
 {
 	this->level = 0;
@@ -44,6 +45,7 @@ void Player::levelUp() {
 			std::cout << "--------------------------" << std::endl;
 		}
 		}
+		this->updateStats();
 		this->showStats();
 	}
 }
@@ -51,9 +53,21 @@ void Player::showStats() {
 	std::cout << "Name: " << this->name << std::endl;
 	std::cout << "Level: " << this->level << std::endl;
 	std::cout << "Expirience: " << this->expirience << '/' << this->expTillNextLvl << std::endl;
+	std::cout << "Mana: " << this->mana << std::endl;
+	std::cout << "Health: " << this->health << std::endl;
+	std::cout << "Stamina: " << this->stamina << std::endl;
 	std::cout << "Strength: " << this->strength << std::endl;
 	std::cout << "Endurance: " << this->endurance << std::endl;
 	std::cout << "Agility: " << this->agility << std::endl;
-	std::cout << "Intrlligence: " << this->intelligence << std::endl;
+	std::cout << "Intelligence: " << this->intelligence << std::endl;
 	std::cout << "Luck: " << this->luck << std::endl;
+	std::cout << "Dodge chance: " << this->dodgeChance << '%' << std::endl;
+	std::cout << "Crit chance: " << this->critHit << '%' << std::endl;
+}
+void Player::updateStats() {
+	this->mana = this->level * 10 + this->intelligence * 5;
+	this->stamina = this->level * 10 + this->strength * 5;
+	this->health = this->level * 10 + this-> endurance * 5;
+	this->dodgeChance = this->agility * 2;
+	this->critHit = this->luck;
 }

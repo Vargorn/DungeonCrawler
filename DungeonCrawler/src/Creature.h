@@ -9,8 +9,12 @@ protected:
 	unsigned int intelligence;
 	unsigned int luck;
 	int health;
+	int healthRegen;
 	int mana;
+	int manaRegen;
 	int stamina;
-
+	int staminaRegen;
+	int dodgeChance;
+	int critHit;
 };
 

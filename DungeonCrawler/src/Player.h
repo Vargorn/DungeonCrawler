@@ -10,11 +10,14 @@ private:
 	unsigned int expirience;
 	unsigned int expTillNextLvl;
 
+	//TODO inventory, backpack
 
 public:
 	Player();
 
 	void levelUp();
+	void updateStats();
 	void showStats();
+	
 };
 
