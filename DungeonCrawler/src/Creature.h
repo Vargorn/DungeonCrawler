@@ -12,10 +12,13 @@ protected:
 	unsigned int intelligence;
 	unsigned int luck;
 	int health;
+	int max_health;
 	int healthRegen;
 	int mana;
+	int max_mana;
 	int manaRegen;
 	int stamina;
+	int max_stamina;
 	int staminaRegen;
 	int dodgeChance;
 	int critHit;

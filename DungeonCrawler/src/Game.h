@@ -1,12 +1,14 @@
 #pragma once
 #include "Player.h"
 #include "Enemy.h"
+#include "Room.h"
 #include <vector>
 class Game
 {
 private:
 	//Player player;
-	Enemy enemy;
+	//Enemy enemy;
+	Room room;
 	std::string name;
 	std::vector<std::string> monsterNames;
 	std::vector<std::string> monsterNicknames;

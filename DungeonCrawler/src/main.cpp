@@ -1,7 +1,7 @@
 #include<iostream>
 #include"Game.h"
 #include"Player.h"
-#include <ctime>
+#include <stdlib.h>
 
 
 //enemy stats dependent from name
@@ -13,7 +13,7 @@
 
 
 int main() {
-	srand(time(0));
+	srand(static_cast<unsigned int>(time(0)));
 	auto game = Game();
 
 }

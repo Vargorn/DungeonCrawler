@@ -1,8 +1,10 @@
 #include "Game.h"
 #include<format>
 Game::Game() {
+	this->room = Room(nullptr);
+	this->room.addRooms();
 	this->initMonsterNames();
-	this->enemy = Enemy(getRandomName(false), 1);
+	//this->enemy = Enemy(getRandomName(false), 1);
 }
 Game::~Game()
 {

@@ -53,9 +53,9 @@ void Player::showStats() {
 	std::cout << "Name: " << this->name << std::endl;
 	std::cout << "Level: " << this->level << std::endl;
 	std::cout << "Expirience: " << this->expirience << '/' << this->expTillNextLvl << std::endl;
-	std::cout << "Mana: " << this->mana << std::endl;
-	std::cout << "Health: " << this->health << std::endl;
-	std::cout << "Stamina: " << this->stamina << std::endl;
+	std::cout << "Mana: " << this->mana << '/' << this->max_mana << std::endl;
+	std::cout << "Health: " << this->health << '/' << this->max_health << std::endl;
+	std::cout << "Stamina: " << this->stamina << '/' << this->max_stamina << std::endl;
 	std::cout << "Strength: " << this->strength << std::endl;
 	std::cout << "Endurance: " << this->endurance << std::endl;
 	std::cout << "Agility: " << this->agility << std::endl;
