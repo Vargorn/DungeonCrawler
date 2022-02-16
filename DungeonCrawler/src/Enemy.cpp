@@ -9,7 +9,6 @@ Enemy::Enemy(std::string name, const int& playerLvl) {
 	this->monster_nickName = name.substr(0, first);
 	this->monster_name = name.substr(first + 1, last - first - 1);
 	this->monster_class = name.substr(last + 1, name.size() - 1);
-
 	this->setStats();
 }
 
@@ -233,4 +232,19 @@ void Enemy::showStats() {
 	std::cout << "Luck: " << this->luck << std::endl;
 	std::cout << "Dodge chance: " << this->dodgeChance << '%' << std::endl;
 	std::cout << "Crit chance: " << this->critHit << '%' << std::endl;
+}
+int Enemy::getDodgeChance() {
+	return this->dodgeChance;
+}
+void Enemy::attack(Player& target) {
+	if (rand() % 100 + 1 <= target.getDodgeChance()) {
+		std::cout << "Enemy has dodged" << std::endl;
+		return;
+	}
+	int damage = this->strength;
+	if (rand() % 100 + 1 <= this->luck) {
+		damage = this->strength * 2;
+	}
+	//gethp 
+	std::cout << "Enemy recieved: " << damage << " damage" << std::endl;
 }

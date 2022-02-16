@@ -15,5 +15,8 @@
 int main() {
 	srand(static_cast<unsigned int>(time(0)));
 	auto game = Game();
-
+	while (true)
+	{
+		game.next();
+	}
 }

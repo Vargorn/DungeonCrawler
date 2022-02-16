@@ -9,5 +9,11 @@ void Creature::updateStats() {
 	this->health = this->max_health;
 	this->dodgeChance = this->agility * 2;
 	this->critHit = this->luck;
+
+}
+ 
+
+void Creature::setHp(int healthP) {
+	this->health = healthP;
 }
 

@@ -1,5 +1,6 @@
 #pragma once
 #include "Creature.h"
+#include "Enemy.h"
 
 class Player : public Creature
 {
@@ -13,9 +14,10 @@ private:
 
 public:
 	Player();
-
 	void levelUp();
 	void showStats();
+	int getDodgeChance();
+	void attack(Enemy& target);
 	
 };
 

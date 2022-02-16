@@ -7,7 +7,7 @@ class Game
 {
 private:
 	//Player player;
-	//Enemy enemy;
+	Enemy enemy;
 	Room room;
 	std::string name;
 	std::vector<std::string> monsterNames;
@@ -19,5 +19,7 @@ public:
 	~Game();
 	void initMonsterNames();
 	std::string getRandomName(bool isBoss);
+	void battle();
+	void next();
 };
 

@@ -1,5 +1,6 @@
 #pragma once
 #include "Creature.h"
+#include "Player.h"
 
 
 
@@ -16,6 +17,8 @@ public:
 	Enemy();
 	void setStats();
 	void showStats();
+	int getDodgeChance();
+	void attack(Player& target);
 };
 
 

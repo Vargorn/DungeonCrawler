@@ -2,8 +2,8 @@
 #include<format>
 Game::Game() {
 	this->room = Room(nullptr);
-	this->room.addRooms();
 	this->initMonsterNames();
+
 	//this->enemy = Enemy(getRandomName(false), 1);
 }
 Game::~Game()
@@ -32,4 +32,34 @@ std::string Game::getRandomName(bool isBoss) {
 	// isBoss == true ? std::cout << "Boss" : std::cout << "Monster"
  }
 
+void Game::battle() {
+
+}
+
+void Game::next() {
+	this->room.addRooms();
+	this->room = this->room.getNextRoom();
+	switch (this->room.getEncounter()) {
+	case EVENTS::EMPTY_ROOM: {
+
+		break;
+	}
+	case EVENTS::MONSTER_ENCOUNTER: {
+		this->enemy = Enemy(getRandomName(false), 1);
+		break;
+	}
+	case EVENTS::NPC_ENCOUNTER: {
+
+		break;
+	}
+	case EVENTS::TRAP: {
+
+		break;
+	}
+	case EVENTS::TREASURE: {
+
+		break;
+	}
+	}
+}
 

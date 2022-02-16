@@ -2,6 +2,7 @@
 #include <iostream>
 
 
+
 class Creature
 {
 protected:
@@ -25,6 +26,11 @@ protected:
 
 public: 
 	void updateStats();
+	//void castSpell();
+	//void useConsumable();
+	void setHp(int healthP);
+	
+
 };
 
 

@@ -13,11 +13,13 @@ Player::Player()
 	this->intelligence = 5;
 	this->luck = 5;	
 
+
 	
 	std::cout << "Enter your name: " << std::endl;
 	std::cin >> this->name;
 	std::cout << "Hello, " << this->name << std::endl;
 	this->levelUp();
+
 }
 
 
@@ -63,4 +65,18 @@ void Player::showStats() {
 	std::cout << "Luck: " << this->luck << std::endl;
 	std::cout << "Dodge chance: " << this->dodgeChance << '%' << std::endl;
 	std::cout << "Crit chance: " << this->critHit << '%' << std::endl;
+}
+int Player::getDodgeChance() {
+	return this->dodgeChance;
+}
+void Player::attack(Enemy& target) {
+	if (rand() % 100 + 1 <= target.getDodgeChance()) {
+		std::cout << "Enemy has dodged"<< std::endl;
+		return;
+	}
+	int damage = this->strength;
+	if (rand() % 100 + 1 <= this->luck) {
+		damage = this->strength * 2;
+	}	
+	std::cout << "Enemy recieved: " << damage << " damage" << std::endl;
 }
