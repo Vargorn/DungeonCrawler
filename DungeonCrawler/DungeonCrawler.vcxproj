@@ -149,13 +149,16 @@
     <ClCompile Include="src\Creature.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Trap.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Enums.h" />
     <ClInclude Include="src\Room.h" />
     <ClInclude Include="src\Enemy.h" />
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\Creature.h" />
     <ClInclude Include="src\Game.h" />
+    <ClInclude Include="src\Trap.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

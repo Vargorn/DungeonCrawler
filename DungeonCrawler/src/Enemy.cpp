@@ -233,18 +233,24 @@ void Enemy::showStats() {
 	std::cout << "Dodge chance: " << this->dodgeChance << '%' << std::endl;
 	std::cout << "Crit chance: " << this->critHit << '%' << std::endl;
 }
-int Enemy::getDodgeChance() {
-	return this->dodgeChance;
-}
-void Enemy::attack(Player& target) {
+void Enemy::attack(Creature& target) {
+	this->stamina -= this->strength + 2;
+	this->regen();
 	if (rand() % 100 + 1 <= target.getDodgeChance()) {
-		std::cout << "Enemy has dodged" << std::endl;
+		std::cout << "Player has dodged" << std::endl;
+		std::cout << "--------------------------" << std::endl;
 		return;
 	}
-	int damage = this->strength;
-	if (rand() % 100 + 1 <= this->luck) {
-		damage = this->strength * 2;
+	int damage = rand() % this->strength + 1;
+	if (static_cast<unsigned int>(rand() % 100 + 1) <= this->luck) {
+		damage = (rand() % this->strength + 1) * 2;
 	}
-	//gethp 
-	std::cout << "Enemy recieved: " << damage << " damage" << std::endl;
+	target.setHp(target.getHp() - damage);
+	std::cout << "Player recieved: " << damage << " damage" << std::endl;
+	std::cout << "--------------------------" << std::endl;
+}
+
+void Enemy::takeAction()
+{
+	//this->attack()
 }

@@ -4,7 +4,7 @@
 Player::Player()
 {
 	this->level = 0;
-	this->expirience = 50;
+	this->experience = 50;
 	this->expTillNextLvl = 50;
 	this->skill_points = 3;
 	this->strength = 5;
@@ -22,11 +22,10 @@ Player::Player()
 
 }
 
-
 void Player::levelUp() {
 	this->level++;
 	this->skill_points += 2;
-	this->expirience -= this->expTillNextLvl;
+	this->experience -= this->expTillNextLvl;
 	this->expTillNextLvl = this->expTillNextLvl * 2;
 	while (this->skill_points > 0) {
 		char atribute;
@@ -54,7 +53,7 @@ void Player::levelUp() {
 void Player::showStats() {
 	std::cout << "Name: " << this->name << std::endl;
 	std::cout << "Level: " << this->level << std::endl;
-	std::cout << "Expirience: " << this->expirience << '/' << this->expTillNextLvl << std::endl;
+	std::cout << "Experience: " << this->experience << '/' << this->expTillNextLvl << std::endl;
 	std::cout << "Mana: " << this->mana << '/' << this->max_mana << std::endl;
 	std::cout << "Health: " << this->health << '/' << this->max_health << std::endl;
 	std::cout << "Stamina: " << this->stamina << '/' << this->max_stamina << std::endl;
@@ -66,17 +65,20 @@ void Player::showStats() {
 	std::cout << "Dodge chance: " << this->dodgeChance << '%' << std::endl;
 	std::cout << "Crit chance: " << this->critHit << '%' << std::endl;
 }
-int Player::getDodgeChance() {
-	return this->dodgeChance;
-}
-void Player::attack(Enemy& target) {
+void Player::attack(Creature& target) {
+
+	this->stamina -= this->strength + 2;
+	this->regen();
 	if (rand() % 100 + 1 <= target.getDodgeChance()) {
-		std::cout << "Enemy has dodged"<< std::endl;
+		std::cout << "Enemy has dodged" << std::endl;
+		std::cout << "--------------------------" << std::endl;
 		return;
 	}
-	int damage = this->strength;
-	if (rand() % 100 + 1 <= this->luck) {
-		damage = this->strength * 2;
-	}	
+	int damage = rand() % this->strength + 1;
+	if (static_cast<unsigned int>(rand() % 100 + 1) <= this->luck) {
+		damage = (rand() % this->strength + 1) * 2;
+	}
+	target.setHp(target.getHp() - damage);
 	std::cout << "Enemy recieved: " << damage << " damage" << std::endl;
+	std::cout << "--------------------------" << std::endl;
 }

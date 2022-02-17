@@ -1,5 +1,4 @@
 #include "Game.h"
-#include<format>
 Game::Game() {
 	this->room = Room(nullptr);
 	this->initMonsterNames();
@@ -9,7 +8,6 @@ Game::Game() {
 Game::~Game()
 {
 }
-
 
 void Game::initMonsterNames() {
 	this->monsterNames = {"Goblin", "Ogre", "Orc", "Troll", "Banshee", "Chimera", "Vampire", "Shoggoth", "Fishman", "Centaur", "Cerberus", "Harpy" };
@@ -33,33 +31,57 @@ std::string Game::getRandomName(bool isBoss) {
  }
 
 void Game::battle() {
+	this->enemy = Enemy(getRandomName(false), 1);
+	int a;
+	std::cout << "--------------------------" << std::endl;
+	std::cout << "You have encoutered an enemy" << std::endl;
+	while (this->player.getHp() > 0 && this->enemy.getHp() > 0) {
+		std::cout << "--------------------------" << std::endl;
+		std::cout << "Make your move, faster " << std::endl;
+		std::cout << "1 - Attack " << std::endl;
+		std::cout << "2 - Block " << std::endl;
+		std::cout << "3 - Cast spell " << std::endl;
+		std::cout << "4 - Use consumamble " << std::endl;
+		std::cout << "--------------------------" << std::endl;
+		std::cin >> a;
+		switch (a)
+		{
+			case 1: {
+				this->player.attack(this->enemy);
+				break;
+			}
+			case 2: {
 
+				break;
+			}
+			case 3: {
+				break;
+			}
+			case 4: {
+				break;
+				}
+		}
+		this->enemy.attack(this->player);
+	}
 }
 
 void Game::next() {
 	this->room.addRooms();
 	this->room = this->room.getNextRoom();
-	switch (this->room.getEncounter()) {
-	case EVENTS::EMPTY_ROOM: {
-
-		break;
+	if (this->room.getEncounter() > 0 && this->room.getEncounter() <= 50) {
+		this->battle();
 	}
-	case EVENTS::MONSTER_ENCOUNTER: {
-		this->enemy = Enemy(getRandomName(false), 1);
-		break;
+	if (this->room.getEncounter() > 50 && this->room.getEncounter() <= 55) {
+		//NPC_ENCOUNTER
 	}
-	case EVENTS::NPC_ENCOUNTER: {
-
-		break;
+	if (this->room.getEncounter() > 55 && this->room.getEncounter() <= 80) {
+		//emtyroom
 	}
-	case EVENTS::TRAP: {
-
-		break;
+	if (this->room.getEncounter() > 80 && this->room.getEncounter() <= 90) {
+		//trap 
 	}
-	case EVENTS::TREASURE: {
-
-		break;
-	}
+	if (this->room.getEncounter() > 90 && this->room.getEncounter() <= 100) {
+		//treasure
 	}
 }
 

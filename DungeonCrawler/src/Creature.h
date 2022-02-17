@@ -1,8 +1,6 @@
 #pragma once
 #include <iostream>
 
-
-
 class Creature
 {
 protected:
@@ -26,9 +24,16 @@ protected:
 
 public: 
 	void updateStats();
+	void regen();
 	//void castSpell();
 	//void useConsumable();
-	void setHp(int healthP);
+	void setHp(int health);
+	void setStamina(int stamina);
+	void setMana(int mana);
+	int getDodgeChance();
+	int getHp();
+	int getStamina();
+	int getMana();
 	
 
 };

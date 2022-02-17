@@ -3,10 +3,12 @@
 #include "Enemy.h"
 #include "Room.h"
 #include <vector>
+#include<format>
+
 class Game
 {
 private:
-	//Player player;
+	Player player;
 	Enemy enemy;
 	Room room;
 	std::string name;
