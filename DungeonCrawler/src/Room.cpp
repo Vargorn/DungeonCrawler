@@ -23,17 +23,19 @@ void Room::addRooms()
 }
 
 Room* Room::getNextRoom() {
+	std::cout << "--------------------------" << std::endl;
 	std::cout << "Choose your path: " << std::endl;
 	std::cout << "--------------------------" << std::endl;
 	for (size_t i = 0; i < next_rooms.size(); i++)
 	{
-		std::cout << i << std::endl;
+		std::cout << i + 1 << std::endl;
 	}
 	std::cout << "--------------------------" << std::endl;
 	unsigned int i = 0;
 	while (i > next_rooms.size() || i < 1)
 	{
 		std::cin >> i;
+		std::cout << "--------------------------" << std::endl;
 		if (i >= next_rooms.size() || i < 0) {
 			std::cout << "WrOnG iNpUt " << std::endl;
 		}

@@ -29,13 +29,12 @@ std::string Game::getRandomName(bool isBoss) {
 	);
 	// isBoss == true ? std::cout << "Boss" : std::cout << "Monster"
  }
-
 void Game::battle() {
+	std::cout << "You have encoutered an enemy" << std::endl;
 	this->enemy = Enemy(getRandomName(false), 1);
 	int a;
-	std::cout << "--------------------------" << std::endl;
-	std::cout << "You have encoutered an enemy" << std::endl;
 	while (this->player.getHp() > 0 && this->enemy.getHp() > 0) {
+
 		std::cout << "--------------------------" << std::endl;
 		std::cout << "Make your move, faster " << std::endl;
 		std::cout << "1 - Attack " << std::endl;
@@ -44,6 +43,7 @@ void Game::battle() {
 		std::cout << "4 - Use consumamble " << std::endl;
 		std::cout << "--------------------------" << std::endl;
 		std::cin >> a;
+		std::cout << "--------------------------" << std::endl;
 		switch (a)
 		{
 			case 1: {
@@ -64,7 +64,6 @@ void Game::battle() {
 		this->enemy.attack(this->player);
 	}
 }
-
 void Game::next() {
 	this->room.addRooms();
 	this->room = this->room.getNextRoom();
