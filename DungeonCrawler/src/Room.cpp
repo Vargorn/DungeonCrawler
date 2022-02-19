@@ -36,7 +36,7 @@ Room* Room::getNextRoom() {
 	{
 		std::cin >> i;
 		std::cout << "--------------------------" << std::endl;
-		if (i >= next_rooms.size() || i < 0) {
+		if (i > next_rooms.size() || i < 0) {
 			std::cout << "WrOnG iNpUt " << std::endl;
 		}
 		//todo typecheck
