@@ -31,7 +31,7 @@ std::string Game::getRandomName(bool isBoss) {
  }
 void Game::battle() {
 	std::cout << "You have encoutered an enemy" << std::endl;
-	//this->enemy = Enemy(getRandomName(false), 1);
+	this->enemy = Enemy(getRandomName(false), 1);
 	int a;
 	while (this->player.getHp() > 0 && this->enemy.getHp() > 0) {
 

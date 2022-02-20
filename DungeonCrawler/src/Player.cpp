@@ -74,7 +74,8 @@ void Player::attack(Creature& target) {
 		std::cout << "--------------------------" << std::endl;
 		return;
 	}
-	int damage = rand() % this->strength + 1;
+	int damage = 1000;
+	//int damage = rand() % this->strength + 1;
 	if (static_cast<unsigned int>(rand() % 100 + 1) <= this->luck) {
 		damage = (rand() % this->strength + 1) * 2;
 	}

@@ -25,6 +25,19 @@ void Enemy::setStats()
 		this->agility = 3 * this->level + 2;
 		this->intelligence = 2 * this->level + 2;
 		this->luck = 3 * this->level + 2;
+		std::cout << R"(
+             ,      ,   
+            /(.-""-.)\
+        |\  \/      \/  /|
+        | \ / =.  .= \ / |
+        \( \   o\/o   / )/
+         \_, '-/  \-' ,_/
+           /   \__/   \
+           \ \__/\__/ /
+         ___\ \|--|/ /___
+       /`    \      /    `\
+      /       '----'       \
+ )" << std::endl;
 	}
 	else if (this->monster_name == "Ogre")
 	{
@@ -33,6 +46,29 @@ void Enemy::setStats()
 		this->agility = 1 * this->level + 1;
 		this->intelligence = 1 * this->level + 1;
 		this->luck = 1 * this->level + 1;
+		std::cout << R"(
+
+                           __,='`````'=/__
+                          '//  (o) \(o) \ `'         _,-,
+                          //|     ,_)   (`\      ,-'`_,-\
+                        ,-~~~\  `'==='  /-,      \==```` \__
+                       /        `----'     `\     \       \/
+                    ,-`                  ,   \  ,.-\       \
+                   /      ,               \,-`\`_,-`\_,..--'\
+                  ,`    ,/,              ,>,   )     \--`````\
+                  (      `\`---'`  `-,-'`_,<   \      \_,.--'`
+                   `.      `--. _,-'`_,-`  |    \
+                    [`-.___   <`_,-'`------(    /
+                    (`` _,-\   \ --`````````|--`
+                     >-`_,-`\,-` ,          |
+                   <`_,'     ,  /\          /
+                    `  \/\,-/ `/  \/`\_/V\_/
+                       (  ._. )    ( .__. )
+                       |      |    |      |
+                        \,---_|    |_---./
+                        ooOO(_)    (_)OOoo
+)" << std::endl;
+		
 	}
 	else if (this->monster_name == "Orc")
 	{
@@ -41,6 +77,27 @@ void Enemy::setStats()
 		this->agility = 1 * this->level + 1;
 		this->intelligence = 2 * this->level + 1;
 		this->luck = 1 * this->level + 2;
+		std::cout << R"(
+                        _,.---''```````'-.
+                    ,-'`                  `-._
+                 ,-`                   __,-``,\
+                /             _       /,'  ,|/ \
+              ,'         ,''-<_`'.    |  ,' |   \
+             /          / _    `  `.  | / \ |\  |
+             |         (  |`'-,---, `'  \_|/ |  |
+             |         |`  \  \|  /  __,    _ \ |
+             |         |    `._\,'  '    ,-`_\ \|
+             |         |        ,----      /|   )
+             \         \       / --.      {/   /|
+              \         | |       `.\         / |
+               \        / `-.                 | /
+                `.     |     `-        _,--V`)\/        _,-
+                  `,   |           /``V_,.--`  \.  _,-'`
+                   /`--'`._        `-'`         )`'
+                  /        `-.            _,.-'`
+                              `-.____,.-'`
+)" << std::endl;
+		
 	}
 	else if (this->monster_name == "Troll")
 	{
@@ -49,6 +106,7 @@ void Enemy::setStats()
 		this->agility = 1 * this->level + 1;
 		this->intelligence = 1 * this->level + 1;
 		this->luck = 1 * this->level + 1;
+		std::cout << R"()" << std::endl;
 	}
 	else if (this->monster_name == "Banshee")
 	{
@@ -57,6 +115,7 @@ void Enemy::setStats()
 		this->agility = 2 * this->level + 2;
 		this->intelligence = 3 * this->level + 2;
 		this->luck = 2 * this->level + 1;
+		std::cout << R"()" << std::endl;
 	}
 	else if (this->monster_name == "Chimera")
 	{
@@ -65,6 +124,7 @@ void Enemy::setStats()
 		this->agility = 2 * this->level + 2;
 		this->intelligence = 1 * this->level + 2;
 		this->luck = 2 * this->level + 1;
+		std::cout << R"()" << std::endl;
 	}
 	else if (this->monster_name == "Vampire")
 	{
@@ -73,6 +133,46 @@ void Enemy::setStats()
 		this->agility = 2 * this->level + 2;
 		this->intelligence = 3 * this->level + 2;
 		this->luck = 2 * this->level + 2;
+		std::cout << R"(
+                                  _.-.
+                                 ._.-.\
+                    .^         _.-'=. \\
+                  .'  )    .-._.-=-..' \'.
+               .'   .'   _.--._-='.'   |  `.  ^.
+             .'   .'    _`.-.`=-./'.-. / .-.\ `. `.
+           .'    /      _.-=-=-/ | '._)`(_.'|   \  `.
+          /    /|       _.--=.'  `. (.-v-.)/    |\   \
+        .'    / \       _.-.' \-.' `-..-..'     / \   `.
+       /     /   `-.._ .-.'      `.'  " ". _..-'  |    |
+      '      |    |   /   )        \  /   \   \    \    `.
+     /      /    /   /   /\                \   \   |      \
+    /      /    /  .'  .'\ `.        .'     \   |   \      \
+   /      /    /  /   /   \  `-    -' .`.    .  \    \     |
+  |      /    / .''\.'    | `.      .'   `.   \  |    |    |
+ .'     /    / /   |      |      .'/       `.- `./    /    |
+ |     /    .-|   /--.    / `.    |    _.-''\   |     |    \
+.'    /  .-'  |  /    `-.|       .'\_.'      `. |`.   |    |
+|    |.-'     / /       /           \          \ \ `. \     \
+|    /       /  |      /             \         |  `. `.|    |
+|   |       /   `.     |      `   .'  \        /    \  \    /
+|   |      ///.-'.\    |       \ /    `\      / /-.  \ |    |
+|   /      \\\\    `    \.-     |    `-.\     |/   \\\\'.   |
+ \ |        \\\|        |      / \      |          //// |  /
+ | |         '''        |     /   \     |          |//  |  \
+ \ |                    |.-  |     \  .-|          ''   |  /
+  \|                    /    |    / ` ../               / /
+                        |'   /    |    /               | /
+                        \.'  |    | `./                |/
+                        /    \   /    \
+                        \ `. /   \    /
+                         |  |     '. '
+                         /  |      |  \
+                        /   |      /   `.
+                       | | | \   .'  `.. \
+                      / / / ._`. \.'-. \`/
+                      |/ / /  `'  `  |/|/
+                       \|\|
+)" << std::endl;
 	}
 	else if (this->monster_name == "Shoggoth")
 	{
@@ -81,6 +181,9 @@ void Enemy::setStats()
 		this->agility = 1 * this->level + 1;
 		this->intelligence = 1 * this->level + 1;
 		this->luck = 1 * this->level + 1;
+		std::cout << R"(
+
+)" << std::endl;
 	}
 	else if (this->monster_name == "Fishman")
 	{
@@ -89,6 +192,7 @@ void Enemy::setStats()
 		this->agility = 3 * this->level + 1;
 		this->intelligence = 1 * this->level + 1;
 		this->luck = 3 * this->level + 1;
+		std::cout << R"()" << std::endl;
 	}
 	else if (this->monster_name == "Centaur")
 	{
@@ -97,6 +201,30 @@ void Enemy::setStats()
 		this->agility = 2 * this->level + 1;
 		this->intelligence = 1 * this->level + 1;
 		this->luck = 2 * this->level + 1;
+		std::cout << R"(
+
+                                       (_______
+                                    -.__\     __\
+                                   _)        /  \
+                                    \_ _    ( "("
+                                     _>_     \_-/
+                                        )/ ,-' (-.
+                                         )/ _ - - )
+                                         /,'| _)_)|
+                          (_____        //  |   /||
+                        .___\   \----._//___/ '( \\
+                         _>    /    __//    ',,,\ )\
+                        _)   /|    /,-/          )'\|
+                        \   ( |     ,            |
+                        /_,\(  \     \-.__\  (_, /
+                       (    '   \    |  |  ) |\ /
+                                _) _/ _/  /, )/ )
+                               _) <\ (     ) |) |
+                                 ) \)_\_   / / \(
+                                 /_,\ \_\   )| /_\
+                                   )_\     /_,) )_\
+                                            |_\
+)" << std::endl;
 	}
 	else if (this->monster_name == "Cerberus")
 	{
@@ -105,6 +233,22 @@ void Enemy::setStats()
 		this->agility = 2 * this->level + 2;
 		this->intelligence = 1 * this->level + 1;
 		this->luck = 2 * this->level + 1;
+		std::cout << R"(
+
+
+
+                            /\_/\____,
+                  ,___/\_/\ \  ~     /
+                  \     ~  \ )   XXX
+                    XXX     /    /\_/\___,
+                       \o-o/-o-o/   ~    /
+                        ) /     \    XXX
+                       _|    / \ \_/
+                    ,-/   _  \_/   \
+                   / (   /____,__|  )
+                  (  |_ (    )  \) _|
+                 _/ _)   \   \__/   (_
+                (,-(,(,(,/      \,),),) )" << std::endl;
 	}
 	else if (this->monster_name == "Harpy")
 	{
@@ -113,6 +257,37 @@ void Enemy::setStats()
 		this->agility = 2 * this->level + 2;
 		this->intelligence = 2 * this->level + 2;
 		this->luck = 2 * this->level + 2;
+		std::cout << R"(
+         ,                                      ,
+        |\                                      /|
+     ,   \'._ ,                           ,  _.'/   ,
+     |\  {'. '-`\,      ,-._**_.-,      ,/`-' .'}  /|
+      \`'-'-.  '.`\      \*____*/      /`.'  .-'-'`/
+    ,'-'-._  '.  ) )     /`    `\     ( (  .'  _.-'-',
+    |\'- _ '.   , /     /  /""\  \     \ ,  .'  _ -'/|
+     \'-.   .  ; (      \_|^  ^|_/      ) ;   .  .-'/
+      `'--, . ;  {`-.      \__/      .-'}  ; . ,--'`
+      '--`_. ;  { ^  \    _|  |_    /  ^ }  ; ._`--'
+      `,_.--  ;  { ^  `-'`      `'-`  ^ }  ;  --._,`
+        ,_.-    ; {^    /        \    ^} ;    -._,
+         ,_.-`), /\{^,/\\_'_/\_'_//\,^}/\ ,(`-._,
+           _.'.-` /.'   \        /   `.\ `-.'._
+          `  _.' `       \      /       ` '._   `
+                        .-'.  .'-.
+                      .'    `` ^  '.
+                     /  ^ ^   ^  ^  \
+                     | ^    ^   ^   |
+                    /^   ^/    \  ^  \
+                    \,_^_/    ^ \_,^./
+                     /=/  \^   /  \=\
+                 __ /=/_   | ^|   _\=\ __
+               <(=,'=(==,) |  | (,==)=',=)>
+                 /_/|_\    /  \    /_|\_\
+                 `V (=|  .'    '.  |=) V`
+                     V  / _/  \_ \  V
+                       `"` \  / `"`
+                            \(
+)" << std::endl;
 	}
 	
 	if (this->monster_nickName == "Sneeky") {
