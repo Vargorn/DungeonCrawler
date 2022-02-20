@@ -31,7 +31,7 @@ std::string Game::getRandomName(bool isBoss) {
  }
 void Game::battle() {
 	std::cout << "You have encoutered an enemy" << std::endl;
-	this->enemy = Enemy(getRandomName(false), 1);
+	//this->enemy = Enemy(getRandomName(false), 1);
 	int a;
 	while (this->player.getHp() > 0 && this->enemy.getHp() > 0) {
 
@@ -63,6 +63,13 @@ void Game::battle() {
 		}
 		this->enemy.attack(this->player);
 	}
+	if (this->enemy.getHp()<= 0) {
+		this->player.setXp(this->player.getXp() + this->enemy.getXp());
+		std::cout << "You've recieved " << this->player.getXp() << " experience" << std::endl;
+		if (this->player.getXp() >= this->player.getXpTillNextLvl()) {
+			this->player.levelUp();
+		}
+	}
 }
 void Game::next() {
 	this->room.addRooms();
@@ -74,13 +81,15 @@ void Game::next() {
 		//NPC_ENCOUNTER
 	}
 	if (this->room.getEncounter() > 55 && this->room.getEncounter() <= 80) {
-		//emtyroom
+		std::cout << "EMPTY ROOM" << std::endl;
 	}
 	if (this->room.getEncounter() > 80 && this->room.getEncounter() <= 90) {
-		//trap 
+		this->trap = Trap(this->player);
 	}
 	if (this->room.getEncounter() > 90 && this->room.getEncounter() <= 100) {
 		//treasure
 	}
 }
-
+int Game::getPlayerHp() {
+	return this->player.getHp();
+}

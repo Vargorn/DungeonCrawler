@@ -15,8 +15,9 @@
 int main() {
 	srand(static_cast<unsigned int>(time(0)));
 	auto game = Game();
-	while (true)
+	while (game.getPlayerHp() > 0)
 	{
 		game.next();
 	}
+	std::cout << "Game Over" << std::endl;
 }

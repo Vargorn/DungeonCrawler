@@ -6,10 +6,10 @@
 class Trap
 {
 private:
-	std::string name;
 	int type;
 
 public:
 	Trap(Player& player);
+	Trap();
 };
 

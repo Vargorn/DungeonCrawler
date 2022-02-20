@@ -82,3 +82,14 @@ void Player::attack(Creature& target) {
 	std::cout << "Enemy recieved: " << damage << " damage" << std::endl;
 	std::cout << "--------------------------" << std::endl;
 }
+int Player::getXp() { 
+	return this->experience;
+}
+
+int Player::getXpTillNextLvl()
+{
+	return this->expTillNextLvl;
+}
+void Player::setXp(int exp) {
+	this->experience = exp;
+}

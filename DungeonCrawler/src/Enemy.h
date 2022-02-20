@@ -14,6 +14,7 @@ public:
 	void showStats();
 	void attack(Creature& target);
 	void takeAction();
+	int getXp();
 };
 
 
