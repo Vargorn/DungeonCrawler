@@ -47,6 +47,7 @@ void Creature::setMana(int mana)
 int Creature::getDodgeChance() {
 	return this->dodgeChance;
 }
+
 int Creature::getHp() {
 	return this->health;
 }

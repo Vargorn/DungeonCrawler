@@ -38,7 +38,7 @@ void Game::battle() {
 		std::cout << "--------------------------" << std::endl;
 		std::cout << "Make your move, faster " << std::endl;
 		std::cout << "1 - Attack " << std::endl;
-		std::cout << "2 - Block " << std::endl;
+		std::cout << "2 - Wait " << std::endl;
 		std::cout << "3 - Cast spell " << std::endl;
 		std::cout << "4 - Use consumamble " << std::endl;
 		std::cout << "--------------------------" << std::endl;
@@ -51,7 +51,7 @@ void Game::battle() {
 				break;
 			}
 			case 2: {
-
+				this->player.wait();
 				break;
 			}
 			case 3: {

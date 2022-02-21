@@ -17,6 +17,7 @@ public:
 	void levelUp();
 	void showStats();
 	void attack(Creature& target);
+	void wait();
 	int getXp();
 	int getXpTillNextLvl();
 	void setXp(int exp);

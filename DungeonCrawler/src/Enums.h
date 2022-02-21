@@ -26,5 +26,6 @@ enum ITEMS {
 	LEGS,
 	FEET,
 	FINGER,
-	HAND
+	HAND,
+	ITEMS_SIZE
 };

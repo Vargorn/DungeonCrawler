@@ -66,7 +66,6 @@ void Player::showStats() {
 	std::cout << "Crit chance: " << this->critHit << '%' << std::endl;
 }
 void Player::attack(Creature& target) {
-
 	this->stamina -= this->strength + 2;
 	this->regen();
 	if (rand() % 100 + 1 <= target.getDodgeChance()) {
@@ -82,6 +81,9 @@ void Player::attack(Creature& target) {
 	target.setHp(target.getHp() - damage);
 	std::cout << "Enemy recieved: " << damage << " damage" << std::endl;
 	std::cout << "--------------------------" << std::endl;
+}
+void Player::wait() {
+	this->regen();
 }
 int Player::getXp() { 
 	return this->experience;
