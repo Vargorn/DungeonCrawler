@@ -4,40 +4,80 @@ Loot::Loot() {
 	this->slot = rand() % ITEMS::ITEMS_SIZE;
 	this->material = this->materials[rand() % this->materials.size()];
 	if (this->material == "Leather") {
-		this->bonuses.push_back(LootBonus("Strength", 1));
+		this->bonuses.push_back(LootBonus("Agility", 2));
 	}
 	else if (this->material == "Foil" ) {
-	
+		this->bonuses.push_back(LootBonus("Luck", 1));
 	}
 	else if (this->material == "Silk" ) {
-
+		this->bonuses.push_back(LootBonus("Endurance", 1));
 	}
 	else if (this->material == "Wooden" ) {
-
+		this->bonuses.push_back(LootBonus("Strength", 2));
 	}
 	else if (this->material == "Glass" ) {
-
+		this->bonuses.push_back(LootBonus("Intelligence", 1));
 	}
 	else if (this->material == "Steel" ) {
-
+		this->bonuses.push_back(LootBonus("Strength", 3));
 	}
 	else if (this->material == "Ebony" ) {
-
+		this->bonuses.push_back(LootBonus("Strength", 4));
 	}
 	else if (this->material == "Bronze" ) {
-
+		this->bonuses.push_back(LootBonus("Endurance", 1));
 	}
 	else if (this->material == "Fur" ) {
-
+		this->bonuses.push_back(LootBonus("Agility", 1));
 	}
 	switch (this->slot)
 	{
 		case ITEMS::HEAD: {
 			this->name = this->helms[rand() % this->helms.size()];
+			if (this->name == "Mask") {
+				this->bonuses.push_back(LootBonus("DodgeChance", 1));
+				this->bonuses.push_back(LootBonus("Intelligence", 1));
+			}
+			else if (this->name == "Hat") {
+				this->bonuses.push_back(LootBonus("Endurance", 1));
+				this->bonuses.push_back(LootBonus("Agility", 1));
+			}
+			else if (this->name == "Hood") {
+				this->bonuses.push_back(LootBonus("Intelligence", 2));
+			}
+			else if (this->name == "Cap") {
+				this->bonuses.push_back(LootBonus("Endurance", 1));
+				this->bonuses.push_back(LootBonus("DodgeChance", 1));
+			}
+			else if (this->name == "Cape") {
+				this->bonuses.push_back(LootBonus("Endurance", 1));
+				this->bonuses.push_back(LootBonus("DodgeChance", 1));
+				this->bonuses.push_back(LootBonus("CritChance", 1));
+			}
 			break;
 		}
 		case ITEMS::BODY: {
 			this->name = this->armor[rand() % this->armor.size()];
+			if (this->name == "Chainmail") {
+				this->bonuses.push_back(LootBonus("Strength", 2));
+				this->bonuses.push_back(LootBonus("Agility", 2));
+			}
+			else if (this->name == "Plaitmail") {
+				this->bonuses.push_back(LootBonus("Strength", 2));
+				this->bonuses.push_back(LootBonus("Endurance", 1));
+			}
+			else if (this->name == "Cuirass") {
+				this->bonuses.push_back(LootBonus("Strength", 4));
+			}
+			else if (this->name == "Robe") {
+				this->bonuses.push_back(LootBonus("DodgeChance", 1));
+				this->bonuses.push_back(LootBonus("CritChance", 1));
+			}
+			else if (this->name == "Coat") {
+				this->bonuses.push_back(LootBonus("Endurance", 1));
+				this->bonuses.push_back(LootBonus("DodgeChance", 1));
+				this->bonuses.push_back(LootBonus("CritChance", 1));
+			}
 			break;
 		}
 		case ITEMS::HAND: {
@@ -69,7 +109,7 @@ Loot::Loot() {
 	
 void Loot::initItem() {
 	this->materials = { "Leather", "Foil", "Silk", "Wooden", "Glass", "Steel", "Ebony", "Bronze", "Fur" };
-	this->armor = { "Chainmail", "Plaitmail" , "Cuirasses" , "Robe" , "Coat" };
+	this->armor = { "Chainmail", "Plaitmail" , "Cuirass" , "Robe" , "Coat" };
 	this->boots = { "Sandals", "Socks", "Greaves", "Boots" };
 	this->helms = { "Mask", "Hat", "Hood", "Cap", "Cape" };
 	this->rings = { "Signet", "Arcane Ring", "Essence Ring", "Ring of Khajiit", "Ring of Disrobing" , "Ring of the Iron Fist" , "Ring of Burden", "Ring of Protection", "Ring of Regen" };
