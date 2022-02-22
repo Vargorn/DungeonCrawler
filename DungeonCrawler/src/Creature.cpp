@@ -2,16 +2,18 @@
 
 void Creature::updateStats() {
 	this->max_mana = this->level * 10 + this->intelligence * 5;
-	this->mana = this->max_mana;
 	this->max_stamina = this->level * 10 + this->strength * 5;
-	this->stamina = this->max_stamina;
 	this->max_health = this->level * 10 + this->endurance * 5;
-	this->health = this->max_health;
 	this->dodgeChance = this->agility * 2;
 	this->critHit = this->luck;
 	this->healthRegen = this->level / 5 + 1;
 	this->staminaRegen = this->endurance/2;
 	this->manaRegen = this->intelligence / 2 + 1;
+}
+void Creature::setmsh() {
+	this->health = this->max_health;
+	this->mana = this->max_mana;
+	this->stamina = this->max_stamina;
 }
 
 void Creature::regen()

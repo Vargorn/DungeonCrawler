@@ -1,5 +1,8 @@
 #include "Loot.h"
-Loot::Loot() {
+Loot::Loot(){
+
+}
+Loot::Loot(int slot) {
 	this->initItem();
 	this->slot = rand() % ITEMS::ITEMS_SIZE;
 	this->material = this->materials[rand() % this->materials.size()];
@@ -117,4 +120,23 @@ void Loot::initItem() {
 	this->shoulders = { "Vile Ward", "Pauldrons of the Skeleton King", "Spaulders of Zakara", " Asheara's Custodian" };
 	this->weapons = { "Mace", "Sword", "Warhammer", "Knife", "Bow", "Crossbow", "Staff", "Wand", "Axe", "Stick" };
 	this->gloves = { "Jester's Gloves", "Mystic Tuning Gloves", "Mythic Dawn Gloves", "Prisoner's Cuffs", "Psiijic Gloves", "Ulfric's Bracers", "Shrouded Hand Wraps" };
+}
+
+void Loot::getInfo()
+{
+	std::cout << this->material << " " << this->name << ": ";
+	for (auto i : this->bonuses) {
+		std::cout << i.getName() << " " << i.getValue() << " ";
+	}
+	std::cout << std::endl;
+}
+
+int Loot::getSlot()
+{
+	return this->slot;
+}
+
+std::vector<LootBonus> Loot::getBonuses()
+{
+	return this->bonuses;
 }

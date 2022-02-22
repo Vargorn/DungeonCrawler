@@ -386,6 +386,7 @@ void Enemy::setStats()
 
 
 	this->updateStats();
+	this->setmsh();
 	this->showStats();
 
 }

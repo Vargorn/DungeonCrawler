@@ -1,6 +1,8 @@
 #pragma once
 #include "Creature.h"
 #include "Enemy.h"
+#include "Loot.h"
+#include <array>
 
 class Player : public Creature
 {
@@ -9,8 +11,9 @@ private:
 	unsigned int skill_points;
 	unsigned int experience;
 	unsigned int expTillNextLvl;
+	std::array<Loot, 9> equipment;
+	std::vector<Loot> backpack;
 
-	//TODO inventory, backpack
 
 public:
 	Player();
@@ -21,5 +24,7 @@ public:
 	int getXp();
 	int getXpTillNextLvl();
 	void setXp(int exp);
+	void openInventory();
+	void updateStats();
 };
 

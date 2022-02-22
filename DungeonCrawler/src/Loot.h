@@ -11,6 +11,7 @@ private:
 	std::string material;
 	int slot;
 	std::vector<LootBonus> bonuses;
+
 	std::vector<std::string> materials;
 	std::vector<std::string> helms;
 	std::vector<std::string> weapons;
@@ -22,5 +23,9 @@ private:
 	std::vector<std::string> trousers;
 public:
 	Loot();
+	Loot(int slot);
 	void initItem();
+	void getInfo();
+	int getSlot();
+	std::vector<LootBonus> getBonuses();
 };

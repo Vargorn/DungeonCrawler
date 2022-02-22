@@ -93,3 +93,8 @@ void Game::next() {
 int Game::getPlayerHp() {
 	return this->player.getHp();
 }
+
+void Game::inventory()
+{
+	this->player.openInventory();
+}

@@ -12,7 +12,7 @@ Player::Player()
 	this->agility = 5;
 	this->intelligence = 5;
 	this->luck = 5;	
-
+	this->equipment.empty();
 
 	
 	std::cout << "Enter your name: " << std::endl;
@@ -47,6 +47,7 @@ void Player::levelUp() {
 		}
 		}
 		this->updateStats();
+		this->setmsh();
 		this->showStats();
 	}
 }
@@ -95,4 +96,43 @@ int Player::getXpTillNextLvl()
 }
 void Player::setXp(int exp) {
 	this->experience = exp;
+}
+
+void Player::openInventory()
+{
+	if (this->backpack.size() == 0) {
+		std::cout << "It's empty" << std::endl;
+		return;
+	}
+	for (auto i : this->backpack) {
+		i.getInfo();
+	}
+}
+
+void Player::updateStats()
+{
+	for (auto& item : this->equipment)
+	{
+		if (item.getSlot() < 8 && item.getSlot() >= 0) {
+			for (auto& bonus : item.getBonuses())
+			{
+				if (bonus.getName() == "Strength") {
+					this->strength += bonus.getValue();
+				}
+				if (bonus.getName() == "Intelligence") {
+					this->intelligence += bonus.getValue();
+				}
+				if (bonus.getName() == "Endurance") {
+					this->endurance += bonus.getValue();
+				}
+				if (bonus.getName() == "Agility") {
+					this->agility += bonus.getValue();
+				}
+				if (bonus.getName() == "Luck") {
+					this->luck += bonus.getValue();
+				}
+			}
+		}
+	}
+	Creature::updateStats();
 }

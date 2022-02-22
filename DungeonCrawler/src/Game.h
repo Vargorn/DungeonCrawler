@@ -27,5 +27,6 @@ public:
 	void battle();
 	void next();
 	int getPlayerHp();
+	void inventory();
 };
 
