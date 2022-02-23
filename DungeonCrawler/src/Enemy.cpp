@@ -2,7 +2,7 @@
 
 
 Enemy::Enemy(std::string name, const int& playerLvl) {
-	this->level = playerLvl;
+	this->level = rand() % playerLvl + 1;
 	size_t first = name.find_first_of(' ');
 	size_t last = name.find_last_of(' ');
 	this->monster_nickName = name.substr(0, first);
@@ -393,6 +393,7 @@ void Enemy::setStats()
 void Enemy::showStats() {
 	std::cout << "--------------------------" << std::endl;
 	std::cout << "Name: " << this->monster_nickName << ' ' << this->monster_name << ' ' << this->monster_class << std::endl;
+	std::cout << "Level: " << this->level << std::endl;
 	std::cout << "Mana: " << this->mana << '/' << this->max_mana << std::endl;
 	std::cout << "Health: " << this->health << '/' << this->max_health << std::endl;
 	std::cout << "Stamina: " << this->stamina << '/' << this->max_stamina << std::endl;
@@ -427,5 +428,5 @@ void Enemy::takeAction()
 }
 int Enemy::getXp()
 {
-	return this->strength + this->endurance + this->agility + this->intelligence + this->luck;
+	return (this->strength + this->endurance + this->agility + this->intelligence + this->luck) * 1.5;
 }		  

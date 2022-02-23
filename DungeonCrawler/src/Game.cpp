@@ -31,7 +31,7 @@ std::string Game::getRandomName(bool isBoss) {
  }
 void Game::battle() {
 	std::cout << "You have encoutered an enemy" << std::endl;
-	this->enemy = Enemy(getRandomName(false), 1);
+	this->enemy = Enemy(getRandomName(false), this->player.getLevel());
 	int a;
 	while (this->player.getHp() > 0 && this->enemy.getHp() > 0) {
 
@@ -65,7 +65,7 @@ void Game::battle() {
 	}
 	if (this->enemy.getHp()<= 0) {
 		this->player.setXp(this->player.getXp() + this->enemy.getXp());
-		std::cout << "You've recieved " << this->player.getXp() << " experience" << std::endl;
+		std::cout << "You've recieved " << this->enemy.getXp() << " experience" << std::endl;
 		if (this->player.getXp() >= this->player.getXpTillNextLvl()) {
 			this->player.levelUp();
 		}
@@ -97,4 +97,9 @@ int Game::getPlayerHp() {
 void Game::inventory()
 {
 	this->player.openInventory();
+}
+
+void Game::stats()
+{
+	this->player.showStats();
 }

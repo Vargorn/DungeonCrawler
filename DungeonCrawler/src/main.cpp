@@ -19,9 +19,12 @@ int main() {
 	char a;
 	while (game.getPlayerHp() > 0)
 	{
+		std::cout << "--------------------------" << std::endl;
 		std::cout << "Choose your action: " << std::endl;
-		std::cout << "n - next room \n" << "i - inventory \n";
+		std::cout << "n - next room \n" << "i - inventory \n" << "s - stats \n";
+		std::cout << "--------------------------" << std::endl;
 		std::cin >> a;
+		std::cout << "--------------------------" << std::endl;
 		switch (a)
 		{
 			case 'n': {
@@ -32,8 +35,13 @@ int main() {
 				game.inventory();
 				break;
 			}
+			case 's': {
+				game.stats();
+				break;
+			}
 			default : {
 				std::cout << "Wrong Input" << std::endl;
+				break;
 			}
 		}
 	}

@@ -35,6 +35,7 @@ public:
 	int getHp();
 	int getStamina();
 	int getMana();
+	unsigned int getLevel();
 	
 
 };

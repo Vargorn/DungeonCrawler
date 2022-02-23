@@ -64,3 +64,8 @@ int Creature::getMana()
 	return this->mana;
 }
 
+unsigned int Creature::getLevel()
+{
+	return this->level;
+}
+

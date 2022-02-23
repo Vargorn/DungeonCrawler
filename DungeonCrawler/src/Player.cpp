@@ -4,15 +4,14 @@
 Player::Player()
 {
 	this->level = 0;
-	this->experience = 50;
-	this->expTillNextLvl = 50;
+	this->expTillNextLvl = 25;
+	this->experience = this->expTillNextLvl;
 	this->skill_points = 3;
 	this->strength = 5;
 	this->endurance = 5;
 	this->agility = 5;
 	this->intelligence = 5;
 	this->luck = 5;	
-	this->equipment.empty();
 
 	
 	std::cout << "Enter your name: " << std::endl;
@@ -26,7 +25,7 @@ void Player::levelUp() {
 	this->level++;
 	this->skill_points += 2;
 	this->experience -= this->expTillNextLvl;
-	this->expTillNextLvl = this->expTillNextLvl * 2;
+	this->expTillNextLvl = this->expTillNextLvl * 1.5;
 	while (this->skill_points > 0) {
 		char atribute;
 		std::cout << "--------------------------" << std::endl;
@@ -74,10 +73,9 @@ void Player::attack(Creature& target) {
 		std::cout << "--------------------------" << std::endl;
 		return;
 	}
-	int damage = 1000;
-	//int damage = rand() % this->strength + 1;
+	int damage = rand() % this->strength + 1;
 	if (static_cast<unsigned int>(rand() % 100 + 1) <= this->luck) {
-		damage = (rand() % this->strength + 1) * 2;
+		damage *= 2;
 	}
 	target.setHp(target.getHp() - damage);
 	std::cout << "Enemy recieved: " << damage << " damage" << std::endl;

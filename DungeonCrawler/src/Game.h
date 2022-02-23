@@ -28,5 +28,6 @@ public:
 	void next();
 	int getPlayerHp();
 	void inventory();
+	void stats();
 };
 
