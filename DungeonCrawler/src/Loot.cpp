@@ -106,9 +106,10 @@ Loot::Loot(int slot) {
 		case ITEMS::WEAPON: {
 			this->name = this->weapons[rand() % this->weapons.size()];
 			break;
+		}
 	}
-	}
-	}
+	std::cout << "You have recived " << this->material << " " << this->name << std::endl;
+}
 	
 void Loot::initItem() {
 	this->materials = { "Leather", "Foil", "Silk", "Wooden", "Glass", "Steel", "Ebony", "Bronze", "Fur" };

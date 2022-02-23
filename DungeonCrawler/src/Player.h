@@ -25,5 +25,6 @@ public:
 	void setXp(int exp);
 	void openInventory();
 	void updateStats();
+	void reciveLoot(const unsigned int& a);
 };
 

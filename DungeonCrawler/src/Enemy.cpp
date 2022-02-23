@@ -530,7 +530,7 @@ void Enemy::showStats() {
 	std::cout << "Crit chance: " << this->critHit << '%' << std::endl;
 }
 void Enemy::attack(Creature& target) {
-	this->stamina -= this->strength + 2;
+	this->stamina -= FATIGUE;
 	this->regen();
 	if (rand() % 100 + 1 <= target.getDodgeChance()) {
 		std::cout << "Player has dodged" << std::endl;
@@ -551,7 +551,7 @@ void Enemy::attack(Creature& target) {
 }
 void Enemy::takeAction(Creature& target)
 {
-	if (this->stamina > 0) {
+	if (this->stamina > 0) { // or probably this->stamina >= FATIGUE
 		this->attack(target);
 		return;
 	}

@@ -4,7 +4,6 @@
 Room::Room(Room* previousRoom) {
 	this->previousRoom = previousRoom;
 	this->encounter = rand() % 100 + 1;
-	
 }
 
 Room::Room()

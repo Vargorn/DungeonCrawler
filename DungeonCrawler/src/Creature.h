@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-
+#define FATIGUE this->strength + 2
 class Creature
 {
 protected:

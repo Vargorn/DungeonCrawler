@@ -1,9 +1,9 @@
 #include "Creature.h"
 
 void Creature::updateStats() {
-	this->max_mana = this->level * 10 + this->intelligence * 5;
-	this->max_stamina = this->level * 10 + this->strength * 5;
-	this->max_health = this->level * 10 + this->endurance * 5;
+	this->max_mana = this->level * 5 + this->intelligence * 5;
+	this->max_stamina = this->level * 5 + this->strength * 5;
+	this->max_health = this->level * 5 + this->endurance * 5;
 	this->dodgeChance = this->agility * 2;
 	this->critHit = this->luck;
 	this->healthRegen = this->level / 4 + 1;

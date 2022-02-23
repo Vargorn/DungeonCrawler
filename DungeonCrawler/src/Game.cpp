@@ -79,6 +79,9 @@ void Game::battle() {
 	if (this->enemy.getHp()<= 0) {
 		this->player.setXp(this->player.getXp() + this->enemy.getXp());
 		std::cout << "You've recieved " << this->enemy.getXp() << " experience" << std::endl;
+		if (rand() % 100 + 1 <= 10) {
+			this->player.reciveLoot(this->enemy.getLevel());
+		}
 		if (this->player.getXp() >= this->player.getXpTillNextLvl()) {
 			this->player.levelUp();
 		}
@@ -108,12 +111,10 @@ void Game::next() {
 int Game::getPlayerHp() {
 	return this->player.getHp();
 }
-
 void Game::inventory()
 {
 	this->player.openInventory();
 }
-
 void Game::stats()
 {
 	this->player.showStats();

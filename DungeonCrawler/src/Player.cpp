@@ -66,7 +66,7 @@ void Player::showStats() {
 	std::cout << "Crit chance: " << this->critHit << '%' << std::endl;
 }
 void Player::attack(Creature& target) {
-	this->stamina -= this->strength + 2;
+	this->stamina -= FATIGUE;
 	this->regen();
 	if (rand() % 100 + 1 <= target.getDodgeChance()) {
 		std::cout << "Enemy has dodged" << std::endl;
@@ -101,8 +101,11 @@ void Player::openInventory()
 		std::cout << "It's empty" << std::endl;
 		return;
 	}
+	int counter = 1;
 	for (auto i : this->backpack) {
+		std::cout << counter << " - ";
 		i.getInfo();
+		counter++;
 	}
 }
 void Player::updateStats()
@@ -131,4 +134,9 @@ void Player::updateStats()
 		}
 	}
 	Creature::updateStats();
+}
+
+void Player::reciveLoot(const unsigned int& level)
+{
+	this->backpack.push_back(Loot(level));
 }
