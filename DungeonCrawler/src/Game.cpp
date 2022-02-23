@@ -41,6 +41,7 @@ void Game::battle() {
 		std::cout << "2 - Wait " << std::endl;
 		std::cout << "3 - Cast spell " << std::endl;
 		std::cout << "4 - Use consumamble " << std::endl;
+		std::cout << "5 - Show stats " << std::endl;
 		std::cout << "--------------------------" << std::endl;
 		std::cin >> a;
 		std::cout << "--------------------------" << std::endl;
@@ -62,6 +63,11 @@ void Game::battle() {
 			case 4: {
 				break;
 				}
+			case 5: {
+				this->player.showStats();
+				this->enemy.showStats();
+				continue;
+			}
 		}
 		this->enemy.takeAction(this->player);
 	}
