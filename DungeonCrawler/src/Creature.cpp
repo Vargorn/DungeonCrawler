@@ -63,4 +63,3 @@ unsigned int Creature::getLevel()
 {
 	return this->level;
 }
-
