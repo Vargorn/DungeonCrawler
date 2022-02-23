@@ -414,17 +414,27 @@ void Enemy::attack(Creature& target) {
 		return;
 	}
 	int damage = rand() % this->strength + 1;
+	if (this->stamina <= 0) {
+		damage /= 2;
+		std::cout << "Enemy has run out of stamina" << std::endl;
+	}
 	if (static_cast<unsigned int>(rand() % 100 + 1) <= this->luck) {
-		damage = (rand() % this->strength + 1) * 2;
+		damage *= 2;
 	}
 	target.setHp(target.getHp() - damage);
 	std::cout << "Player recieved: " << damage << " damage" << std::endl;
 	std::cout << "--------------------------" << std::endl;
 }
 
-void Enemy::takeAction()
+void Enemy::takeAction(Creature& target)
 {
-	//this->attack()
+	if (this->stamina > 0) {
+		this->attack(target);
+		return;
+	}
+	this->wait();
+	std::cout << "Enemy waits" << std::endl;
+	std::cout << "--------------------------" << std::endl;
 }
 int Enemy::getXp()
 {

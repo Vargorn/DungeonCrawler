@@ -25,6 +25,7 @@ protected:
 public: 
 	void updateStats();
 	void regen();
+	void wait();
 	//void castSpell();
 	//void useConsumable();
 	void setmsh();

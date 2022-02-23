@@ -52,6 +52,8 @@ void Game::battle() {
 			}
 			case 2: {
 				this->player.wait();
+				std::cout << "Player waits" << std::endl;
+				std::cout << "--------------------------" << std::endl;
 				break;
 			}
 			case 3: {
@@ -61,7 +63,7 @@ void Game::battle() {
 				break;
 				}
 		}
-		this->enemy.attack(this->player);
+		this->enemy.takeAction(this->player);
 	}
 	if (this->enemy.getHp()<= 0) {
 		this->player.setXp(this->player.getXp() + this->enemy.getXp());
@@ -79,6 +81,7 @@ void Game::next() {
 	}
 	if (this->room.getEncounter() > 50 && this->room.getEncounter() <= 55) {
 		//NPC_ENCOUNTER
+		std::cout << "Sorry NPSs are yet to be done OTL" << std::endl;
 	}
 	if (this->room.getEncounter() > 55 && this->room.getEncounter() <= 80) {
 		std::cout << "EMPTY ROOM" << std::endl;
@@ -87,6 +90,7 @@ void Game::next() {
 		this->trap = Trap(this->player);
 	}
 	if (this->room.getEncounter() > 90 && this->room.getEncounter() <= 100) {
+		std::cout << "Loot is not implemented yet (^w^)" << std::endl;
 		//treasure
 	}
 }

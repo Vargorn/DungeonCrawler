@@ -13,7 +13,7 @@ public:
 	void setStats();
 	void showStats();
 	void attack(Creature& target);
-	void takeAction();
+	void takeAction(Creature& target);
 	int getXp();
 };
 
