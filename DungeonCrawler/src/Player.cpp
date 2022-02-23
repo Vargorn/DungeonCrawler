@@ -88,7 +88,6 @@ void Player::attack(Creature& target) {
 int Player::getXp() { 
 	return this->experience;
 }
-
 int Player::getXpTillNextLvl()
 {
 	return this->expTillNextLvl;
@@ -96,7 +95,6 @@ int Player::getXpTillNextLvl()
 void Player::setXp(int exp) {
 	this->experience = exp;
 }
-
 void Player::openInventory()
 {
 	if (this->backpack.size() == 0) {
@@ -107,7 +105,6 @@ void Player::openInventory()
 		i.getInfo();
 	}
 }
-
 void Player::updateStats()
 {
 	for (auto& item : this->equipment)

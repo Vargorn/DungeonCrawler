@@ -1,4 +1,5 @@
 #include "Room.h"
+#define I(i) (static_cast<size_t>(i -'0'))
 
 Room::Room(Room* previousRoom) {
 	this->previousRoom = previousRoom;
@@ -16,7 +17,7 @@ unsigned int Room::getEncounter() {
 
 void Room::addRooms()
 {
-	for (size_t i = 0; i < static_cast<unsigned int>(rand() % 4 + 1); i++)
+	for (size_t i = 0; i < static_cast<size_t>(rand() % 4) + 1; i++)
 	{
 		this->next_rooms.push_back(new Room(this));
 	}	
@@ -31,18 +32,17 @@ Room* Room::getNextRoom() {
 		std::cout << i + 1 << std::endl;
 	}
 	std::cout << "--------------------------" << std::endl;
-	unsigned int i = 0;
-	while (i > next_rooms.size() || i < 1)
+	char i = 0;
+	while ( I(i) > next_rooms.size() || I(i) < 1)
 	{
 		std::cin >> i;
 		std::cout << "--------------------------" << std::endl;
-		if (i > next_rooms.size() || i < 0) {
-			std::cout << "WrOnG iNpUt " << std::endl;
+		if (I(i) > next_rooms.size() || I(i) < 0) {
+			std::cout << "Wrong Input" << std::endl;
 		}
-		//todo typecheck
 	};
 	std::cout << "--------------------------" << std::endl;
-	return this->next_rooms[i - 1];
+	return this->next_rooms[I(i) - 1];
 }
 
 

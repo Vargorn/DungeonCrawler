@@ -32,7 +32,7 @@ std::string Game::getRandomName(bool isBoss) {
 void Game::battle() {
 	std::cout << "You have encoutered an enemy" << std::endl;
 	this->enemy = Enemy(getRandomName(false), this->player.getLevel());
-	int a;
+	char a;
 	while (this->player.getHp() > 0 && this->enemy.getHp() > 0) {
 
 		std::cout << "--------------------------" << std::endl;
@@ -47,25 +47,30 @@ void Game::battle() {
 		std::cout << "--------------------------" << std::endl;
 		switch (a)
 		{
-			case 1: {
+			case '1': {
 				this->player.attack(this->enemy);
 				break;
 			}
-			case 2: {
+			case '2': {
 				this->player.wait();
 				std::cout << "Player waits" << std::endl;
 				std::cout << "--------------------------" << std::endl;
 				break;
 			}
-			case 3: {
+			case '3': {
 				break;
 			}
-			case 4: {
+			case '4': {
 				break;
 				}
-			case 5: {
+			case '5': {
 				this->player.showStats();
 				this->enemy.showStats();
+				continue;
+			}
+			default: {
+				std::cout << "Wrong input" << std::endl;
+				std::cout << "--------------------------" << std::endl;
 				continue;
 			}
 		}
