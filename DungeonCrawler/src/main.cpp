@@ -5,12 +5,8 @@
 #include <array>
 
 
-//enemy stats dependent from name
-//vector w/ rooms + add monster randomizer and boss randomizer
-// backpack
-//items
-//equipment
-//loot
+//TODO
+//Magic, Traps, Bosses, Loot, NPC, Treasure, Balance
 
 
 int main() {

@@ -1,10 +1,10 @@
 #include "Loot.h"
 Loot::Loot(){
-
+	this->slot = ITEMS::NONE;
 }
 Loot::Loot(int slot) {
 	this->initItem();
-	this->slot = rand() % ITEMS::ITEMS_SIZE;
+	this->slot = rand() % (ITEMS::ITEMS_SIZE - 1) + 1;
 	this->material = this->materials[rand() % this->materials.size()];
 	if (this->material == "Leather") {
 		this->bonuses.push_back(LootBonus("Agility", 2));
@@ -127,7 +127,7 @@ void Loot::getInfo()
 {
 	std::cout << this->material << " " << this->name << ": ";
 	for (auto i : this->bonuses) {
-		std::cout << i.getName() << " " << i.getValue() << " ";
+		std::cout << i.getName() << " " << (i.getValue() > 0 ? "+" : "-") << i.getValue() << " ";
 	}
 	std::cout << std::endl;
 }

@@ -13,7 +13,7 @@ Player::Player()
 	this->intelligence = 5;
 	this->luck = 5;	
 
-	
+	std::cout << "Stand up. There you go. You were dreaming. What's your name?" << std::endl;
 	std::cout << "Enter your name: " << std::endl;
 	std::cin >> this->name;
 	std::cout << "Hello, " << this->name << std::endl;
@@ -26,6 +26,8 @@ void Player::levelUp() {
 	this->skill_points += 2;
 	this->experience -= this->expTillNextLvl;
 	this->expTillNextLvl = this->expTillNextLvl * 1.5;
+	std::cout << "--------------------------" << std::endl;
+	std::cout << "Level Up!" << std::endl;
 	while (this->skill_points > 0) {
 		char atribute;
 		std::cout << "--------------------------" << std::endl;
@@ -135,7 +137,6 @@ void Player::updateStats()
 	}
 	Creature::updateStats();
 }
-
 void Player::reciveLoot(const unsigned int& level)
 {
 	this->backpack.push_back(Loot(level));
