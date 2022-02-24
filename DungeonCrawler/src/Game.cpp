@@ -78,6 +78,7 @@ void Game::battle() {
 	}
 	if (this->enemy.getHp()<= 0) {
 		this->player.setXp(this->player.getXp() + this->enemy.getXp());
+		std::cout << "Enemy Killed!" << std::endl;
 		std::cout << "You've recieved " << this->enemy.getXp() << " experience" << std::endl;
 		if (rand() % 100 + 1 <= 10) {
 			this->player.reciveLoot(this->enemy.getLevel());

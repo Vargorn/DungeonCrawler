@@ -1,85 +1,95 @@
 #include "Loot.h"
 Loot::Loot(){
-	this->slot = ITEMS::NONE;
+	this->type = ITEMS::NONE;
 }
-Loot::Loot(int slot) {
+Loot::Loot(int level) {
 	this->initItem();
-	this->slot = rand() % (ITEMS::ITEMS_SIZE - 1) + 1;
+	this->type = rand() % (ITEMS::ITEMS_SIZE - 1) + 1;
 	this->material = this->materials[rand() % this->materials.size()];
 	if (this->material == "Leather") {
-		this->bonuses.push_back(LootBonus("Agility", 2));
-	}
-	else if (this->material == "Foil" ) {
-		this->bonuses.push_back(LootBonus("Luck", 1));
-	}
-	else if (this->material == "Silk" ) {
+		this->bonuses.push_back(LootBonus("Agility", 1));
 		this->bonuses.push_back(LootBonus("Endurance", 1));
 	}
+	else if (this->material == "Foil" ) {
+		this->bonuses.push_back(LootBonus("Luck", 2));
+	}
+	else if (this->material == "Silk" ) {
+		this->bonuses.push_back(LootBonus("Intelligence", 2));
+		this->bonuses.push_back(LootBonus("Agility", 1));
+	}
 	else if (this->material == "Wooden" ) {
-		this->bonuses.push_back(LootBonus("Strength", 2));
+		this->bonuses.push_back(LootBonus("Strength", 1));
+		this->bonuses.push_back(LootBonus("Agility", -2));
 	}
 	else if (this->material == "Glass" ) {
 		this->bonuses.push_back(LootBonus("Intelligence", 1));
+		this->bonuses.push_back(LootBonus("Endurance", -1));
 	}
 	else if (this->material == "Steel" ) {
-		this->bonuses.push_back(LootBonus("Strength", 3));
+		this->bonuses.push_back(LootBonus("Strength", 2));
+		this->bonuses.push_back(LootBonus("Endurance", 1));
+		this->bonuses.push_back(LootBonus("Agility", -1));
 	}
 	else if (this->material == "Ebony" ) {
-		this->bonuses.push_back(LootBonus("Strength", 4));
+		this->bonuses.push_back(LootBonus("Strength", 1));
+		this->bonuses.push_back(LootBonus("Endurance", 3));
+		this->bonuses.push_back(LootBonus("Agility", -2));
 	}
 	else if (this->material == "Bronze" ) {
 		this->bonuses.push_back(LootBonus("Endurance", 1));
+		this->bonuses.push_back(LootBonus("Luck", 1));
 	}
 	else if (this->material == "Fur" ) {
 		this->bonuses.push_back(LootBonus("Agility", 1));
+		this->bonuses.push_back(LootBonus("Endurance", 2));
 	}
-	switch (this->slot)
+	switch (this->type)
 	{
 		case ITEMS::HEAD: {
 			this->name = this->helms[rand() % this->helms.size()];
 			if (this->name == "Mask") {
-				this->bonuses.push_back(LootBonus("DodgeChance", 1));
+				this->bonuses.push_back(LootBonus("Agility", 1));
 				this->bonuses.push_back(LootBonus("Intelligence", 1));
 			}
 			else if (this->name == "Hat") {
-				this->bonuses.push_back(LootBonus("Endurance", 1));
-				this->bonuses.push_back(LootBonus("Agility", 1));
+				this->bonuses.push_back(LootBonus("Intelligence", 1));
+				this->bonuses.push_back(LootBonus("Luck", 1));
 			}
 			else if (this->name == "Hood") {
-				this->bonuses.push_back(LootBonus("Intelligence", 2));
+				this->bonuses.push_back(LootBonus("Agility", 2));
 			}
 			else if (this->name == "Cap") {
 				this->bonuses.push_back(LootBonus("Endurance", 1));
-				this->bonuses.push_back(LootBonus("DodgeChance", 1));
+				this->bonuses.push_back(LootBonus("Luck", 1));
 			}
 			else if (this->name == "Cape") {
-				this->bonuses.push_back(LootBonus("Endurance", 1));
-				this->bonuses.push_back(LootBonus("DodgeChance", 1));
-				this->bonuses.push_back(LootBonus("CritChance", 1));
+				this->bonuses.push_back(LootBonus("Agility", 1));
+				this->bonuses.push_back(LootBonus("Intelligence", -1));
+				this->bonuses.push_back(LootBonus("Luck", 1));
 			}
 			break;
 		}
 		case ITEMS::BODY: {
 			this->name = this->armor[rand() % this->armor.size()];
 			if (this->name == "Chainmail") {
-				this->bonuses.push_back(LootBonus("Strength", 2));
-				this->bonuses.push_back(LootBonus("Agility", 2));
+				this->bonuses.push_back(LootBonus("Endurance", 2));
+				this->bonuses.push_back(LootBonus("Strength", 1));
 			}
 			else if (this->name == "Plaitmail") {
 				this->bonuses.push_back(LootBonus("Strength", 2));
 				this->bonuses.push_back(LootBonus("Endurance", 1));
+				this->bonuses.push_back(LootBonus("Agility", -1));
 			}
 			else if (this->name == "Cuirass") {
-				this->bonuses.push_back(LootBonus("Strength", 4));
+				this->bonuses.push_back(LootBonus("Strength", 3));
 			}
 			else if (this->name == "Robe") {
-				this->bonuses.push_back(LootBonus("DodgeChance", 1));
-				this->bonuses.push_back(LootBonus("CritChance", 1));
+				this->bonuses.push_back(LootBonus("Luck", 1));
+				this->bonuses.push_back(LootBonus("Intelligence", 2));
 			}
 			else if (this->name == "Coat") {
-				this->bonuses.push_back(LootBonus("Endurance", 1));
-				this->bonuses.push_back(LootBonus("DodgeChance", 1));
-				this->bonuses.push_back(LootBonus("CritChance", 1));
+				this->bonuses.push_back(LootBonus("Agility", 2));
+				this->bonuses.push_back(LootBonus("Intelligence", 1));
 			}
 			break;
 		}
@@ -134,7 +144,7 @@ void Loot::getInfo()
 
 int Loot::getSlot()
 {
-	return this->slot;
+	return this->type;
 }
 
 std::vector<LootBonus> Loot::getBonuses()

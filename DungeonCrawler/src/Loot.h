@@ -9,7 +9,7 @@ class Loot
 private:
 	std::string name;
 	std::string material;
-	int slot;
+	int type;
 	std::vector<LootBonus> bonuses;
 
 	std::vector<std::string> materials;
@@ -23,7 +23,7 @@ private:
 	std::vector<std::string> trousers;
 public:
 	Loot();
-	Loot(int slot);
+	Loot(int level);
 	void initItem();
 	void getInfo();
 	int getSlot();
