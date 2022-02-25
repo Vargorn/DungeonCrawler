@@ -4,6 +4,7 @@
 #include "Loot.h"
 #include <array>
 
+
 class Player : public Creature
 {
 private:
@@ -11,7 +12,7 @@ private:
 	unsigned int skill_points;
 	unsigned int experience;
 	unsigned int expTillNextLvl;
-	std::array<Loot, 9> equipment;
+	std::vector<Loot> equipment;
 	std::vector<Loot> backpack;
 
 

@@ -137,7 +137,7 @@ void Loot::getInfo()
 {
 	std::cout << this->material << " " << this->name << ": ";
 	for (auto i : this->bonuses) {
-		std::cout << i.getName() << " " << (i.getValue() > 0 ? "+" : "-") << i.getValue() << " ";
+		std::cout << i.getName() << " " << (i.getValue() > 0 ? "+" : "") << i.getValue() << " ";
 	}
 	std::cout << std::endl;
 }

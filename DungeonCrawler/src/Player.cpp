@@ -1,5 +1,6 @@
 #include "Player.h"
-//to do dialog, story, intoduction.
+#define I(i) (static_cast<size_t>(i -'0'))
+//TODO Dialog, Story, Intoduction.
 
 Player::Player()
 {
@@ -16,7 +17,7 @@ Player::Player()
 	std::cout << "Stand up. There you go. You were dreaming. What's your name?" << std::endl;
 	std::cout << "Enter your name: " << std::endl;
 	std::cin >> this->name;
-	std::cout << "Hello, " << this->name << std::endl;
+	std::cout << "So your name is " << this->name << ", correct?" << std::endl;
 	this->levelUp();
 
 }
@@ -25,7 +26,7 @@ void Player::levelUp() {
 	this->level++;
 	this->skill_points += 2;
 	this->experience -= this->expTillNextLvl;
-	this->expTillNextLvl = this->expTillNextLvl * 1.5;
+	this->expTillNextLvl = this->expTillNextLvl * 1.5f;
 	std::cout << "--------------------------" << std::endl;
 	std::cout << "Level Up!" << std::endl;
 	while (this->skill_points > 0) {
@@ -108,6 +109,27 @@ void Player::openInventory()
 		std::cout << counter << " - ";
 		i.getInfo();
 		counter++;
+	}
+	while (true) {
+		char a;
+		std::cout << "--------------------------" << std::endl;
+		std::cout << "Enter item index to equip it or enter 0 to continue " << std::endl;
+		std::cin >> a;
+		if (I(a) <= this->backpack.size() && I(a) > 0) {
+			this->equipment.push_back(this->backpack[I(a) - 1]);
+			std::cout << "You equiped ";
+			this->backpack[I(a) - 1].getInfo();
+			this->backpack.erase(this->backpack.begin() + I(a) - 1);
+			this->updateStats();
+			return;
+		}
+		else if (I(a) == 0) {
+			return;
+		}
+		else {
+			std::cout << "Wrong Input" << std::endl;
+		}
+		
 	}
 }
 void Player::updateStats()

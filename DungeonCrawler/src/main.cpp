@@ -7,6 +7,7 @@
 
 //TODO
 //Magic, Traps, Bosses, Loot, NPC, Treasure, Balance
+//Maze and Map
 
 
 int main() {
