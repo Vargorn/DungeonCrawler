@@ -11,7 +11,7 @@ class Game
 private:
 	Player player;
 	Enemy enemy;
-	Maze maze;
+	Maze* maze;
 	Trap trap;
 	std::string name;
 	std::vector<std::string> monsterNames;

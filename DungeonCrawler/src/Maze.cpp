@@ -176,11 +176,14 @@ void Maze::move() {
 	this->currentRoom->setValue('x');
 	this->currentRoom->showPaths();
 	this->drawMap();
+	std::cout << "--------------------------" << std::endl;
 	this->currentRoom = this->currentRoom->next();
-	if (this->currentRoom->getIsExit()) {
-		std::cout << "The end. Congrats!" << std::endl;
-	}
 }
 unsigned int Maze::getCurrentEncounter() {
 	return this->currentRoom->getEncounter();
+}
+
+bool Maze::isExit()
+{
+	return this->currentRoom->getIsExit();
 }

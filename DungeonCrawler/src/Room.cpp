@@ -57,31 +57,40 @@ void Room::showPaths() {
 	}
 }
 Room* Room::next() {
-	std::cout << "Coose direction:" << std::endl;
+	std::cout << "Coose direction: \nl - left \nr - right \nu - up \nd - down \nb - back" << std::endl;
+	std::cout << "--------------------------" << std::endl;
 	char a;
 	std::cin >> a;
+	std::cout << "--------------------------" << std::endl;
 	if (a == 'l' && this->nextRooms[0] != nullptr) {
 		this->value = '<';
+		this->encounter = 80;
 		return this->nextRooms[0];
 	}
 	else if (a == 'r' && this->nextRooms[1] != nullptr) {
 		this->value = '>';
+		this->encounter = 80;
 		return this->nextRooms[1];
 	}
 	else if (a == 'u' && this->nextRooms[2] != nullptr) {
 		this->value = '^';
+		this->encounter = 80;
 		return this->nextRooms[2];
 	}
 	else if (a == 'd' && this->nextRooms[3] != nullptr) {
 		this->value = '|';
+		this->encounter = 80;
 		return this->nextRooms[3];
 	}
 	else if (a == 'b' && this->previousRoom != nullptr) {
 		this->value = '*';
+		this->encounter = 80;
+
 		return this->previousRoom;
 	}
 	else {
 		std::cout << "Wrong Input!" << std::endl;
+		std::cout << "--------------------------" << std::endl;
 		this->next();
 	}
 }

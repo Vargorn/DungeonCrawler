@@ -140,6 +140,7 @@ void Loot::getInfo()
 		std::cout << i.getName() << " " << (i.getValue() > 0 ? "+" : "") << i.getValue() << " ";
 	}
 	std::cout << std::endl;
+	std::cout << "--------------------------" << std::endl;
 }
 
 int Loot::getSlot()

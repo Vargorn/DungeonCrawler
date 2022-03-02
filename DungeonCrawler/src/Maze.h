@@ -19,4 +19,5 @@ public:
 	void drawMap();
 	void move();
 	unsigned int getCurrentEncounter();
+	bool isExit();
 };

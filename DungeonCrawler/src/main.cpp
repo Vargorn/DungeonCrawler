@@ -16,7 +16,6 @@ int main() {
 	char a;
 	while (game.getPlayerHp() > 0)
 	{
-		std::cout << "--------------------------" << std::endl;
 		std::cout << "Choose your action: " << std::endl;
 		std::cout << "n - next room \n" << "i - inventory \n" << "s - stats \n";
 		std::cout << "--------------------------" << std::endl;

@@ -26,6 +26,7 @@ Player::Player()
 	std::cout << "Enter your name: " << std::endl;
 	std::cin >> this->name;
 	std::cout << "So your name is " << this->name << ", correct?" << std::endl;
+	std::cout << "--------------------------" << std::endl;
 	this->levelUp();
 
 }
@@ -35,11 +36,9 @@ void Player::levelUp() {
 	this->skill_points += 2;
 	this->experience -= this->expTillNextLvl;
 	this->expTillNextLvl = this->expTillNextLvl * 1.5f;
-	std::cout << "--------------------------" << std::endl;
 	std::cout << "Level Up!" << std::endl;
 	while (this->skill_points > 0) {
 		char atribute;
-		std::cout << "--------------------------" << std::endl;
 		std::cout << "You have " << this->skill_points << " skill points" << std::endl;
 		std::cout << "Choose where to spend: \n s - strength \n e - endurance \n a - agility \n i - intelligence \n l - luck \n";
 		std::cout << "--------------------------" << std::endl;
@@ -52,7 +51,7 @@ void Player::levelUp() {
 		case 'i': this->intelligence++; this->skill_points--; break;
 		case 'l': this->luck++; this->skill_points--; break;
 		default: {
-			std::cout << "Wrong input, fella "<< std::endl;
+			std::cout << "Wrong Input"<< std::endl;
 			std::cout << "--------------------------" << std::endl;
 		}
 		}
@@ -75,11 +74,13 @@ void Player::showStats() {
 	std::cout << "Luck: " << this->luck << " + " << this->bonus_luck << std::endl;
 	std::cout << "Dodge chance: " << this->dodgeChance << '%' << std::endl;
 	std::cout << "Crit chance: " << this->critHit << '%' << std::endl;
+	std::cout << "--------------------------" << std::endl;
 }
 void Player::attack(Creature& target) {
 	this->stamina -= FATIGUE;
 	this->regen();
-	if (rand() % 100 + 1 <= target.getDodgeChance()) {
+	if (target.getStamina() >= this->agility + this->bonus_agility && rand() % 100 + 1 <= target.getDodgeChance()) {
+		target.setStamina(target.getStamina() - (this->agility + this->bonus_agility));
 		std::cout << "Enemy has dodged" << std::endl;
 		std::cout << "--------------------------" << std::endl;
 		return;
@@ -110,6 +111,7 @@ void Player::openInventory()
 {
 	if (this->backpack.size() == 0) {
 		std::cout << "It's empty" << std::endl;
+		std::cout << "--------------------------" << std::endl;
 		return;
 	}
 	int counter = 1;
@@ -122,7 +124,9 @@ void Player::openInventory()
 		char a;
 		std::cout << "--------------------------" << std::endl;
 		std::cout << "Enter item index to equip it or enter 0 to continue " << std::endl;
+		std::cout << "--------------------------" << std::endl;
 		std::cin >> a;
+		std::cout << "--------------------------" << std::endl;
 		if (I(a) <= this->backpack.size() && I(a) > 0) {
 			this->equipment.push_back(this->backpack[I(a) - 1]);
 			std::cout << "You equiped ";
@@ -136,6 +140,7 @@ void Player::openInventory()
 		}
 		else {
 			std::cout << "Wrong Input" << std::endl;
+			std::cout << "--------------------------" << std::endl;
 		}
 		
 	}

@@ -1,9 +1,11 @@
 #include "Game.h"
 Game::Game() {
 	this->initMonsterNames();
+	this->maze = new Maze(3);
 }
 Game::~Game()
 {
+	delete maze;
 }
 
 void Game::initMonsterNames() {
@@ -28,11 +30,11 @@ std::string Game::getRandomName(bool isBoss) {
  }
 void Game::battle() {
 	std::cout << "You have encoutered an enemy" << std::endl;
+	std::cout << "--------------------------" << std::endl;
 	this->enemy = Enemy(getRandomName(false), this->player.getLevel());
 	char a;
 	while (this->player.getHp() > 0 && this->enemy.getHp() > 0) {
 
-		std::cout << "--------------------------" << std::endl;
 		std::cout << "Make your move, faster " << std::endl;
 		std::cout << "1 - Attack " << std::endl;
 		std::cout << "2 - Wait " << std::endl;
@@ -55,10 +57,14 @@ void Game::battle() {
 				break;
 			}
 			case '3': {
-				break;
+				std::cout << "There Is No Magic In This World Yet... " << std::endl;
+				std::cout << "--------------------------" << std::endl;
+				continue;
 			}
 			case '4': {
-				break;
+				std::cout << "Well Consumambles Are Not Yet Ready" << std::endl;
+				std::cout << "--------------------------" << std::endl;
+				continue;
 				}
 			case '5': {
 				this->player.showStats();
@@ -77,6 +83,7 @@ void Game::battle() {
 		this->player.setXp(this->player.getXp() + this->enemy.getXp());
 		std::cout << "Enemy Killed!" << std::endl;
 		std::cout << "You've recieved " << this->enemy.getXp() << " experience" << std::endl;
+		std::cout << "--------------------------" << std::endl;
 		if (rand() % 100 + 1 <= 10) {
 			this->player.reciveLoot(this->enemy.getLevel());
 		}
@@ -86,23 +93,55 @@ void Game::battle() {
 	}
 }
 void Game::next() {
-	this->maze.move();
-	if (this->maze.getCurrentEncounter() > 0 && this->maze.getCurrentEncounter() <= 50) {
+	this->maze->move();
+	if (this->maze->getCurrentEncounter() > 0 && this->maze->getCurrentEncounter() <= 50) {
 		this->battle();
+		if (this->player.getHp() <= 0) {
+			return;
+		}
 	}
-	if (this->maze.getCurrentEncounter() > 50 && this->maze.getCurrentEncounter() <= 55) {
+	if (this->maze->getCurrentEncounter() > 50 && this->maze->getCurrentEncounter() <= 55) {
 		//NPC_ENCOUNTER
 		std::cout << "Sorry NPSs are yet to be done OTL" << std::endl;
+		std::cout << "--------------------------" << std::endl;
 	}
-	if (this->maze.getCurrentEncounter() > 55 && this->maze.getCurrentEncounter() <= 80) {
-		std::cout << "EMPTY ROOM" << std::endl;
+	if (this->maze->getCurrentEncounter() > 55 && this->maze->getCurrentEncounter() <= 80) {
+		std::cout << "This room is completely empty" << std::endl;
+		std::cout << "--------------------------" << std::endl;
 	}
-	if (this->maze.getCurrentEncounter() > 80 && this->maze.getCurrentEncounter() <= 90) {
+	if (this->maze->getCurrentEncounter() > 80 && this->maze->getCurrentEncounter() <= 90) {
 		this->trap = Trap(this->player);
+		std::cout << "--------------------------" << std::endl;
 	}
-	if (this->maze.getCurrentEncounter() > 90 && this->maze.getCurrentEncounter() <= 100) {
-		std::cout << "Loot is not implemented yet (^w^)" << std::endl;
+	if (this->maze->getCurrentEncounter() > 90 && this->maze->getCurrentEncounter() <= 100) {
+		this->player.reciveLoot(1);
+		std::cout << "--------------------------" << std::endl;
+		//std::cout << "Loot is not implemented yet (^w^)" << std::endl;
 		//treasure
+	}
+	if (this->maze->isExit()) {
+		char choise;
+		std::cout << "You found a ladder leading to the next floor. Do you want to go upstairs?\ny - yes\nn - no"<< std::endl;
+		std::cout << "--------------------------" << std::endl;
+		while (true)
+		{
+			std::cin >> choise;
+			if (choise == 'y') {
+				this->maze = new Maze(3);
+				std::cout << "--------------------------" << std::endl;
+				return;
+			}
+			else if (choise == 'n') {
+				std::cout << "--------------------------" << std::endl;
+				return;
+			}
+			else {
+				std::cout << "Wrong Input" << std::endl;
+				std::cout << "--------------------------" << std::endl;
+				continue;
+			}
+		}
+		
 	}
 }
 int Game::getPlayerHp() {
