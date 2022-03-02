@@ -1,9 +1,6 @@
 #include "Game.h"
 Game::Game() {
-	this->room = Room(nullptr);
 	this->initMonsterNames();
-
-	//this->enemy = Enemy(getRandomName(false), 1);
 }
 Game::~Game()
 {
@@ -89,22 +86,21 @@ void Game::battle() {
 	}
 }
 void Game::next() {
-	this->room.addRooms();
-	this->room = this->room.getNextRoom();
-	if (this->room.getEncounter() > 0 && this->room.getEncounter() <= 50) {
+	this->maze.move();
+	if (this->maze.getCurrentEncounter() > 0 && this->maze.getCurrentEncounter() <= 50) {
 		this->battle();
 	}
-	if (this->room.getEncounter() > 50 && this->room.getEncounter() <= 55) {
+	if (this->maze.getCurrentEncounter() > 50 && this->maze.getCurrentEncounter() <= 55) {
 		//NPC_ENCOUNTER
 		std::cout << "Sorry NPSs are yet to be done OTL" << std::endl;
 	}
-	if (this->room.getEncounter() > 55 && this->room.getEncounter() <= 80) {
+	if (this->maze.getCurrentEncounter() > 55 && this->maze.getCurrentEncounter() <= 80) {
 		std::cout << "EMPTY ROOM" << std::endl;
 	}
-	if (this->room.getEncounter() > 80 && this->room.getEncounter() <= 90) {
+	if (this->maze.getCurrentEncounter() > 80 && this->maze.getCurrentEncounter() <= 90) {
 		this->trap = Trap(this->player);
 	}
-	if (this->room.getEncounter() > 90 && this->room.getEncounter() <= 100) {
+	if (this->maze.getCurrentEncounter() > 90 && this->maze.getCurrentEncounter() <= 100) {
 		std::cout << "Loot is not implemented yet (^w^)" << std::endl;
 		//treasure
 	}

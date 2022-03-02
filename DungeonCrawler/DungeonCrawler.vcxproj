@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Maze.cpp" />
     <ClCompile Include="src\LootBonus.cpp" />
     <ClCompile Include="src\Loot.cpp" />
     <ClCompile Include="src\Room.cpp" />
@@ -158,6 +159,7 @@
     <ClCompile Include="src\Trap.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Maze.h" />
     <ClInclude Include="src\LootBonus.h" />
     <ClInclude Include="src\Loot.h" />
     <ClInclude Include="src\Enums.h" />

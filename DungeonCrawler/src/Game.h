@@ -2,7 +2,7 @@
 #include "Player.h"
 #include "Trap.h"
 #include "Enemy.h"
-#include "Room.h"
+#include "Maze.h"
 #include <vector>
 #include<format>
 
@@ -11,7 +11,7 @@ class Game
 private:
 	Player player;
 	Enemy enemy;
-	Room room;
+	Maze maze;
 	Trap trap;
 	std::string name;
 	std::vector<std::string> monsterNames;
