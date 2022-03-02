@@ -23,7 +23,7 @@ protected:
 	int critHit;
 
 public: 
-	void updateStats();
+	virtual void updateStats();
 	void regen();
 	void wait();
 	//void castSpell();

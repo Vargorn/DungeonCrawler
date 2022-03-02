@@ -9,6 +9,11 @@ class Player : public Creature
 {
 private:
 	std::string name;	
+	unsigned int bonus_strength;
+	unsigned int bonus_endurance;
+	unsigned int bonus_agility;
+	unsigned int bonus_intelligence;
+	unsigned int bonus_luck;
 	unsigned int skill_points;
 	unsigned int experience;
 	unsigned int expTillNextLvl;
@@ -25,7 +30,6 @@ public:
 	int getXpTillNextLvl();
 	void setXp(int exp);
 	void openInventory();
-	void updateStats();
+	void updateStats() override;
 	void reciveLoot(const unsigned int& a);
 };
-

@@ -14,6 +14,14 @@ Player::Player()
 	this->intelligence = 5;
 	this->luck = 5;	
 
+	this->bonus_strength = 0;
+	this->bonus_endurance = 0;
+	this->bonus_agility = 0;
+	this->bonus_intelligence = 0;
+	this->bonus_luck = 0;
+	//this->reciveLoot(1);
+
+
 	std::cout << "Stand up. There you go. You were dreaming. What's your name?" << std::endl;
 	std::cout << "Enter your name: " << std::endl;
 	std::cin >> this->name;
@@ -60,11 +68,11 @@ void Player::showStats() {
 	std::cout << "Mana: " << this->mana << '/' << this->max_mana << std::endl;
 	std::cout << "Health: " << this->health << '/' << this->max_health << std::endl;
 	std::cout << "Stamina: " << this->stamina << '/' << this->max_stamina << std::endl;
-	std::cout << "Strength: " << this->strength << std::endl;
-	std::cout << "Endurance: " << this->endurance << std::endl;
-	std::cout << "Agility: " << this->agility << std::endl;
-	std::cout << "Intelligence: " << this->intelligence << std::endl;
-	std::cout << "Luck: " << this->luck << std::endl;
+	std::cout << "Strength: " << this->strength << " + " << this->bonus_strength << std::endl;
+	std::cout << "Endurance: " << this->endurance << " + " << this->bonus_endurance << std::endl;
+	std::cout << "Agility: " << this->agility << " + " << this->bonus_agility << std::endl;
+	std::cout << "Intelligence: " << this->intelligence << " + " << this->bonus_intelligence << std::endl;
+	std::cout << "Luck: " << this->luck << " + " << this->bonus_luck << std::endl;
 	std::cout << "Dodge chance: " << this->dodgeChance << '%' << std::endl;
 	std::cout << "Crit chance: " << this->critHit << '%' << std::endl;
 }
@@ -132,32 +140,45 @@ void Player::openInventory()
 		
 	}
 }
-void Player::updateStats()
+void Player::updateStats() 
 {
+	this->bonus_strength = 0;
+	this->bonus_endurance = 0;
+	this->bonus_agility = 0;
+	this->bonus_intelligence = 0;
+	this->bonus_luck = 0;
+
 	for (auto& item : this->equipment)
 	{
 		if (item.getSlot() < 8 && item.getSlot() >= 0) {
 			for (auto& bonus : item.getBonuses())
 			{
 				if (bonus.getName() == "Strength") {
-					this->strength += bonus.getValue();
+					this->bonus_strength += bonus.getValue();
 				}
 				if (bonus.getName() == "Intelligence") {
-					this->intelligence += bonus.getValue();
+					this->bonus_intelligence += bonus.getValue();
 				}
 				if (bonus.getName() == "Endurance") {
-					this->endurance += bonus.getValue();
+					this->bonus_endurance += bonus.getValue();
 				}
 				if (bonus.getName() == "Agility") {
-					this->agility += bonus.getValue();
+					this->bonus_agility += bonus.getValue();
 				}
 				if (bonus.getName() == "Luck") {
-					this->luck += bonus.getValue();
+					this->bonus_luck += bonus.getValue();
 				}
 			}
 		}
 	}
-	Creature::updateStats();
+	this->max_mana = this->level * 5 + (this->intelligence + this->bonus_intelligence)  * 5;
+	this->max_stamina = this->level * 5 + (this->strength + this->bonus_strength) * 5;
+	this->max_health = this->level * 5 + (this->endurance + this->bonus_endurance) * 5;
+	this->dodgeChance = (this->agility + this->bonus_agility) * 2;
+	this->critHit = (this->luck + this->bonus_luck);
+	this->healthRegen = this->level / 5;
+	this->staminaRegen = (this->endurance + this->bonus_endurance) / 2 + 1;
+	this->manaRegen = (this->intelligence + this->bonus_intelligence) / 2 + 1;
 }
 void Player::reciveLoot(const unsigned int& level)
 {

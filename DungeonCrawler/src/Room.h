@@ -33,5 +33,3 @@ public:
 	void showPaths();
 	Room* next();
 };
-
-

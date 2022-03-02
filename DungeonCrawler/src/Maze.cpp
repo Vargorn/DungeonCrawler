@@ -181,7 +181,6 @@ void Maze::move() {
 		std::cout << "The end. Congrats!" << std::endl;
 	}
 }
-
 unsigned int Maze::getCurrentEncounter() {
 	return this->currentRoom->getEncounter();
 }
