@@ -1,3 +1,4 @@
+#include"pch.h"
 #include "Maze.h"
 Maze::Maze(unsigned int length) {
 	this->length = length;

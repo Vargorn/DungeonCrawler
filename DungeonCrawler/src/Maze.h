@@ -1,8 +1,4 @@
 #pragma once
-#include<iostream>
-#include <iostream>
-#include <vector>
-#include <array>
 #include "Room.h"
 class Maze
 {

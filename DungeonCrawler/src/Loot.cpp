@@ -1,4 +1,6 @@
+#include"pch.h"
 #include "Loot.h"
+
 Loot::Loot(){
 	this->type = ITEMS::NONE;
 }

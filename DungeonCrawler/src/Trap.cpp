@@ -1,3 +1,4 @@
+#include"pch.h"
 #include "Trap.h"
 
 Trap::Trap(Player& player)

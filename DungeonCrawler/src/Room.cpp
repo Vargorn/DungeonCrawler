@@ -1,4 +1,6 @@
+#include"pch.h"
 #include "Room.h"
+
 Room::Room(int x, int y) {
 	this->x = x;
 	this->y = y;

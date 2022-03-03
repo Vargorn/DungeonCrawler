@@ -1,6 +1,7 @@
 #pragma once
 #include "Creature.h"
 #include "Player.h"
+
 class Enemy : public Creature
 {
 private:

@@ -1,3 +1,4 @@
+#include"pch.h"
 #include "Player.h"
 #define I(i) (static_cast<size_t>(i -'0'))
 //TODO Dialog, Story, Intoduction.

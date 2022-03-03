@@ -3,8 +3,6 @@
 #include "Trap.h"
 #include "Enemy.h"
 #include "Maze.h"
-#include <vector>
-#include<format>
 
 class Game
 {

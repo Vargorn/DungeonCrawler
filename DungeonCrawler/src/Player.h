@@ -2,7 +2,6 @@
 #include "Creature.h"
 #include "Enemy.h"
 #include "Loot.h"
-#include <array>
 
 
 class Player : public Creature

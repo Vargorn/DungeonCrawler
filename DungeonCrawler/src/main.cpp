@@ -1,8 +1,5 @@
-#include<iostream>
+#include"pch.h"
 #include"Game.h"
-#include"Player.h"
-#include <stdlib.h>
-#include <array>
 
 
 //TODO
