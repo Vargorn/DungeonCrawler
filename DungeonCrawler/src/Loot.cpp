@@ -143,7 +143,7 @@ void Loot::getInfo()
 	std::cout << "--------------------------" << std::endl;
 }
 
-int Loot::getSlot()
+int Loot::getType()
 {
 	return this->type;
 }

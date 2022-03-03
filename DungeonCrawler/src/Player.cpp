@@ -37,6 +37,7 @@ void Player::levelUp() {
 	this->experience -= this->expTillNextLvl;
 	this->expTillNextLvl = this->expTillNextLvl * 1.5f;
 	std::cout << "Level Up!" << std::endl;
+	std::cout << "--------------------------" << std::endl;
 	while (this->skill_points > 0) {
 		char atribute;
 		std::cout << "You have " << this->skill_points << " skill points" << std::endl;
@@ -77,7 +78,7 @@ void Player::showStats() {
 	std::cout << "--------------------------" << std::endl;
 }
 void Player::attack(Creature& target) {
-	this->stamina -= FATIGUE;
+	this->stamina -= (FATIGUE + this->bonus_strength);
 	this->regen();
 	if (target.getStamina() >= this->agility + this->bonus_agility && rand() % 100 + 1 <= target.getDodgeChance()) {
 		target.setStamina(target.getStamina() - (this->agility + this->bonus_agility));
@@ -155,7 +156,7 @@ void Player::updateStats()
 
 	for (auto& item : this->equipment)
 	{
-		if (item.getSlot() < 8 && item.getSlot() >= 0) {
+		if (item.getType() < 9 && item.getType() > 0) {
 			for (auto& bonus : item.getBonuses())
 			{
 				if (bonus.getName() == "Strength") {

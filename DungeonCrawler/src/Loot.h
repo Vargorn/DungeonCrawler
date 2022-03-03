@@ -26,6 +26,6 @@ public:
 	Loot(int level);
 	void initItem();
 	void getInfo();
-	int getSlot();
+	int getType();
 	std::vector<LootBonus> getBonuses();
 };
