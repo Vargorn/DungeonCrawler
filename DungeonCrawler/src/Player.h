@@ -8,11 +8,11 @@ class Player : public Creature
 {
 private:
 	std::string name;	
-	unsigned int bonus_strength;
-	unsigned int bonus_endurance;
-	unsigned int bonus_agility;
-	unsigned int bonus_intelligence;
-	unsigned int bonus_luck;
+	int bonus_strength;
+	int bonus_endurance;
+	int bonus_agility;
+	int bonus_intelligence;
+	int bonus_luck;
 	unsigned int skill_points;
 	unsigned int experience;
 	unsigned int expTillNextLvl;

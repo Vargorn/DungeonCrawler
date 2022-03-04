@@ -68,4 +68,5 @@ Trap::Trap(Player& player)
 
 Trap::Trap()
 {
+
 }

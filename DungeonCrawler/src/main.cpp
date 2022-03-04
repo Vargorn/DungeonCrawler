@@ -3,8 +3,8 @@
 
 
 //TODO
-//Magic, Traps, Bosses, Loot, NPC, Treasure, Balance
-//Maze and Map
+//Magic, Traps, Loot, NPC, Treasure, Balance
+//Boss in the end of the Maze 
 
 
 int main() {

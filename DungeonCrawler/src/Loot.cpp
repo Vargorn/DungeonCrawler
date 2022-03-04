@@ -121,6 +121,7 @@ Loot::Loot(int level) {
 		}
 	}
 	std::cout << "You have recived " << this->material << " " << this->name << std::endl;
+	std::cout << "--------------------------" << std::endl;
 }
 	
 void Loot::initItem() {
