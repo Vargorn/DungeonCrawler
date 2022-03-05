@@ -33,7 +33,8 @@ int main() {
 				break;
 			}
 			default : {
-				std::cout << "Wrong Input" << std::endl;
+				std::cout << "Wrong Input!" << std::endl;
+				std::cout << "--------------------------" << std::endl;
 				break;
 			}
 		}

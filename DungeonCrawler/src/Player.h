@@ -31,4 +31,5 @@ public:
 	void openInventory();
 	void updateStats() override;
 	void reciveLoot(const unsigned int& a);
+	int getLuck() override;
 };

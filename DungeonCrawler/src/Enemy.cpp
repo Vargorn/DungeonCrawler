@@ -455,6 +455,11 @@ void Enemy::showStats() {
 void Enemy::attack(Creature& target) {
 	this->stamina -= FATIGUE;
 	this->regen();
+	if (rand() % 100 + 1 <= target.getLuck() / 4) {
+		std::cout << "Enemy Missed" << std::endl;
+		std::cout << "--------------------------" << std::endl;
+		return;
+	}
 	if (target.getDodgeChance() > 0 && target.getStamina() >= this->agility && rand() % 100 + 1 <= target.getDodgeChance()) {
 		target.setStamina(target.getStamina() - this->agility);
 		std::cout << "Player has dodged" << std::endl;
@@ -467,7 +472,8 @@ void Enemy::attack(Creature& target) {
 		std::cout << "Enemy has run out of stamina" << std::endl;
 	}
 	if (static_cast<unsigned int>(rand() % 100 + 1) <= this->luck) {
-		damage *= 2;
+		std::cout << "Critical Hit!" << std::endl;
+		damage *= 1.5f + 0.05f * this->agility;
 	}
 	target.setHp(target.getHp() - damage);
 	std::cout << "Player recieved: " << damage << " damage" << std::endl;

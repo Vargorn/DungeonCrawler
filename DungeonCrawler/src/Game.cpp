@@ -3,7 +3,7 @@
 
 Game::Game() {
 	this->initMonsterNames();
-	this->maze = new Maze(8);
+	this->maze = new Maze(rand() % 4 + 3);
 }
 Game::~Game()
 {
@@ -86,7 +86,7 @@ void Game::battle() {
 		std::cout << "Enemy Killed!" << std::endl;
 		std::cout << "You've recieved " << this->enemy.getXp() << " experience" << std::endl;
 		std::cout << "--------------------------" << std::endl;
-		if (rand() % 100 + 1 <= 10) {
+		if (rand() % 100 + 1 <= 9 + this->player.getLuck() / 5) {
 			this->player.reciveLoot(this->enemy.getLevel());
 		}
 		if (this->player.getXp() >= this->player.getXpTillNextLvl()) {
@@ -129,7 +129,7 @@ void Game::next() {
 		{
 			std::cin >> choise;
 			if (choise == 'y') {
-				this->maze = new Maze(3);
+				this->maze = new Maze(rand() % 4 + 3);
 				std::cout << "--------------------------" << std::endl;
 				return;
 			}

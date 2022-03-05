@@ -47,15 +47,15 @@ void Player::levelUp() {
 		std::cin >> atribute;
 		std::cout << "--------------------------" << std::endl;
 		switch (atribute) {
-		case 's': this->strength++; this->skill_points--; break;
-		case 'e': this->endurance++; this->skill_points--; break;
-		case 'a': this->agility++; this->skill_points--; break;
-		case 'i': this->intelligence++; this->skill_points--; break;
-		case 'l': this->luck++; this->skill_points--; break;
-		default: {
-			std::cout << "Wrong Input"<< std::endl;
-			std::cout << "--------------------------" << std::endl;
-		}
+			case 's': this->strength++; this->skill_points--; break;
+			case 'e': this->endurance++; this->skill_points--; break;
+			case 'a': this->agility++; this->skill_points--; break;
+			case 'i': this->intelligence++; this->skill_points--; break;
+			case 'l': this->luck++; this->skill_points--; break;
+			default: {
+				std::cout << "Wrong Input"<< std::endl;
+				std::cout << "--------------------------" << std::endl;
+			}
 		}
 		this->updateStats();
 		this->setmsh();
@@ -106,6 +106,11 @@ void Player::showStats() {
 void Player::attack(Creature& target) {
 	this->stamina -= (FATIGUE + this->bonus_strength);
 	this->regen();
+	if (rand() % 100 + 1 <= target.getLuck() / 4) {
+		std::cout << "Player Missed" << std::endl;
+		std::cout << "--------------------------" << std::endl;
+		return;
+	}
 	if (target.getDodgeChance() > 0 && target.getStamina() >= this->agility + this->bonus_agility && rand() % 100 + 1 <= target.getDodgeChance()) {
 		target.setStamina(target.getStamina() - (this->agility + this->bonus_agility));
 		std::cout << "Enemy has dodged" << std::endl;
@@ -118,7 +123,8 @@ void Player::attack(Creature& target) {
 		std::cout << "Player has run out of stamina" << std::endl;
 	}
 	if (static_cast<unsigned int>(rand() % 100 + 1) <= this->luck) {
-		damage *= 2;
+		std::cout << "Critical Hit!" << std::endl;
+		damage *= 1.5f + 0.05f * (this->agility + this->bonus_agility);
 	}
 	target.setHp(target.getHp() - damage);
 	std::cout << "Enemy recieved: " << damage << " damage" << std::endl;
@@ -148,10 +154,9 @@ void Player::openInventory()
 		counter++;
 	}
 	while (true) {
-		char a;
-		std::cout << "--------------------------" << std::endl;
 		std::cout << "Enter item index to equip it or enter 0 to continue " << std::endl;
 		std::cout << "--------------------------" << std::endl;
+		char a;
 		std::cin >> a;
 		std::cout << "--------------------------" << std::endl;
 		if (I(a) <= this->backpack.size() && I(a) > 0) {
@@ -215,4 +220,7 @@ void Player::updateStats()
 void Player::reciveLoot(const unsigned int& level)
 {
 	this->backpack.push_back(Loot(level));
+}
+int Player::getLuck() {
+	return this->luck + this->bonus_luck;
 }

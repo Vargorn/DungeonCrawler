@@ -59,7 +59,12 @@ void Room::showPaths() {
 	}
 }
 Room* Room::next() {
-	std::cout << "Coose direction: \nl - left \nr - right \nu - up \nd - down \nb - back" << std::endl;
+	std::cout << "Coose direction:" <<
+		(this->nextRooms[0] != nullptr ? "\nl - left" : "") << 
+		(this->nextRooms[1] != nullptr ? "\nr - right" : "") <<
+		(this->nextRooms[2] != nullptr ? "\nu - up" : "") <<
+		(this->nextRooms[3] != nullptr ? "\nd - down" : "") <<
+		(this->previousRoom != nullptr ? "\nb - back" : "") << std::endl;
 	std::cout << "--------------------------" << std::endl;
 	char a;
 	std::cin >> a;

@@ -64,3 +64,6 @@ unsigned int Creature::getLevel()
 {
 	return this->level;
 }
+int Creature::getLuck() {
+	return this->luck;
+}
