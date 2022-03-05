@@ -3,7 +3,7 @@
 
 Game::Game() {
 	this->initMonsterNames();
-	this->maze = new Maze(3);
+	this->maze = new Maze(8);
 }
 Game::~Game()
 {

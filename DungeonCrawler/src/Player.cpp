@@ -69,11 +69,36 @@ void Player::showStats() {
 	std::cout << "Mana: " << this->mana << '/' << this->max_mana << std::endl;
 	std::cout << "Health: " << this->health << '/' << this->max_health << std::endl;
 	std::cout << "Stamina: " << this->stamina << '/' << this->max_stamina << std::endl;
-	std::cout << "Strength: " << this->strength << " + " << this->bonus_strength << std::endl;
-	std::cout << "Endurance: " << this->endurance << " + " << this->bonus_endurance << std::endl;
-	std::cout << "Agility: " << this->agility << " + " << this->bonus_agility << std::endl;
-	std::cout << "Intelligence: " << this->intelligence << " + " << this->bonus_intelligence << std::endl;
-	std::cout << "Luck: " << this->luck << " + " << this->bonus_luck << std::endl;
+	if (this->bonus_strength >= 0) {
+		std::cout << "Strength: " << this->strength << " + " << this->bonus_strength << " " << std::endl;
+	}
+	else {
+		std::cout << "Strength: " << this->strength << " - " << -this->bonus_strength << std::endl;
+	}
+	if (this->bonus_endurance >= 0) {
+		std::cout << "Endurance: " << this->endurance << " + " << this->bonus_endurance << std::endl;
+	}
+	else {
+		std::cout << "Endurance: " << this->endurance << " - " << -this->bonus_endurance << std::endl;
+	}
+	if (this->bonus_agility >= 0) {
+		std::cout << "Agility: " << this->agility << " + " << this->bonus_agility << std::endl;
+	}
+	else {
+		std::cout << "Agility: " << this->agility << " - " << -this->bonus_agility << std::endl;
+	}
+	if (this->bonus_intelligence >= 0) {
+		std::cout << "Intelligence: " << this->intelligence << " + " << this->bonus_intelligence << std::endl;
+	}
+	else {
+		std::cout << "Intelligence: " << this->intelligence << " - " << -this->bonus_intelligence << std::endl;
+	}
+	if (this->bonus_luck >= 0) {
+		std::cout << "Luck: " << this->luck << " + " << this->bonus_luck << std::endl;
+	}
+	else {
+		std::cout << "Luck: " << this->luck << " - " << -this->bonus_luck << std::endl;
+	}
 	std::cout << "Dodge chance: " << this->dodgeChance << '%' << std::endl;
 	std::cout << "Crit chance: " << this->critHit << '%' << std::endl;
 	std::cout << "--------------------------" << std::endl;
@@ -81,13 +106,13 @@ void Player::showStats() {
 void Player::attack(Creature& target) {
 	this->stamina -= (FATIGUE + this->bonus_strength);
 	this->regen();
-	if (target.getStamina() >= this->agility + this->bonus_agility && rand() % 100 + 1 <= target.getDodgeChance()) {
+	if (target.getDodgeChance() > 0 && target.getStamina() >= this->agility + this->bonus_agility && rand() % 100 + 1 <= target.getDodgeChance()) {
 		target.setStamina(target.getStamina() - (this->agility + this->bonus_agility));
 		std::cout << "Enemy has dodged" << std::endl;
 		std::cout << "--------------------------" << std::endl;
 		return;
 	}
-	int damage = rand() % this->strength + 1;
+	int damage = rand() % (this->strength + this->bonus_strength) + 1;
 	if (this->stamina <= 0) {
 		damage /= 2;
 		std::cout << "Player has run out of stamina" << std::endl;

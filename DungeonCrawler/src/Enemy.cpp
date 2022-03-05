@@ -455,7 +455,7 @@ void Enemy::showStats() {
 void Enemy::attack(Creature& target) {
 	this->stamina -= FATIGUE;
 	this->regen();
-	if (target.getStamina() >= this->agility && rand() % 100 + 1 <= target.getDodgeChance()) {
+	if (target.getDodgeChance() > 0 && target.getStamina() >= this->agility && rand() % 100 + 1 <= target.getDodgeChance()) {
 		target.setStamina(target.getStamina() - this->agility);
 		std::cout << "Player has dodged" << std::endl;
 		std::cout << "--------------------------" << std::endl;
