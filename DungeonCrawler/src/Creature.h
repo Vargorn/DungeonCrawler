@@ -4,11 +4,11 @@ class Creature
 {
 protected:
 	unsigned int level;
-	unsigned int strength;
-	unsigned int endurance;
-	unsigned int agility;
-	unsigned int intelligence;
-	unsigned int luck;
+	int strength;
+	int endurance;
+	int agility;
+	int intelligence;
+	int luck;
 	int health;
 	int max_health;
 	int healthRegen;
