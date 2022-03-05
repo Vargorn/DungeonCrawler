@@ -87,7 +87,7 @@ void Game::battle() {
 		std::cout << "You've recieved " << this->enemy.getXp() << " experience" << std::endl;
 		std::cout << "--------------------------" << std::endl;
 		if (rand() % 100 + 1 <= 9 + this->player.getLuck() / 5) {
-			this->player.reciveLoot(this->enemy.getLevel());
+			this->player.reciveLoot(rand() % this->enemy.getLevel() + 1);
 		}
 		if (this->player.getXp() >= this->player.getXpTillNextLvl()) {
 			this->player.levelUp();
@@ -116,7 +116,7 @@ void Game::next() {
 		std::cout << "--------------------------" << std::endl;
 	}
 	if (this->maze->getCurrentEncounter() > 90 && this->maze->getCurrentEncounter() <= 100) {
-		this->player.reciveLoot(1);
+		this->player.reciveLoot(rand() % this->player.getLevel() + 1);
 		std::cout << "--------------------------" << std::endl;
 		//std::cout << "Loot is not implemented yet (^w^)" << std::endl;
 		//treasure

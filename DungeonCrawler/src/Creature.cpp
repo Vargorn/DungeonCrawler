@@ -7,7 +7,7 @@ void Creature::updateStats() {
 	this->max_health = this->level * 5 + this->endurance * 5;
 	this->dodgeChance = this->agility * 2;
 	this->critHit = this->luck;
-	this->healthRegen = this->level / 5;
+	this->healthRegen = this->level / 4;
 	this->staminaRegen = this->endurance / 2 + 1;
 	this->manaRegen = this->intelligence / 2 + 1;
 }

@@ -5,7 +5,7 @@ Trap::Trap(Player& player)
 {
 	std::cout << "It's a trap!!! " << std::endl;
 	std::cout << "--------------------------" << std::endl;
-	this->type = rand() % TRAPS::SIZE;
+	this->type = rand() % TRAPS::TRAPS_SIZE;
 	switch (this->type)
 	{
 	case TRAPS::MUSHROOMS: {

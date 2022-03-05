@@ -4,6 +4,7 @@
 Loot::Loot(){
 	this->type = ITEMS::NONE;
 }
+
 Loot::Loot(int level) {
 	this->initItem();
 	this->type = rand() % (ITEMS::ITEMS_SIZE - 1) + 1;
