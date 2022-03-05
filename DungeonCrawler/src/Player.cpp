@@ -22,10 +22,11 @@ Player::Player()
 	this->bonus_luck = 0;
 	//this->reciveLoot(1);
 
-
+	PlaySound(TEXT("Data/intro.wav"), NULL, SND_ASYNC);
 	std::cout << "Stand up. There you go. You were dreaming. What's your name?" << std::endl;
 	std::cout << "Enter your name: " << std::endl;
 	std::cin >> this->name;
+	PlaySound(TEXT("Data/intro2.wav"), NULL, SND_ASYNC);
 	std::cout << "So your name is " << this->name << ", correct?" << std::endl;
 	std::cout << "--------------------------" << std::endl;
 	this->levelUp();
