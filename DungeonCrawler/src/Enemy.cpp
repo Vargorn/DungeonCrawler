@@ -18,7 +18,7 @@ void Enemy::setStats()
 {
 	if (this->monster_name == "Goblin")
 	{
-		this->strength = 1 * this->level + 2;
+		this->strength = 1 * this->level + 1;
 		this->endurance = 1 * this->level + 2;
 		this->agility = 3 * this->level + 2;
 		this->intelligence = 2 * this->level + 2;
@@ -39,10 +39,10 @@ void Enemy::setStats()
 	}
 	else if (this->monster_name == "Ogre")
 	{
-		this->strength = 3 * this->level + 2;
+		this->strength = 3 * this->level + 1;
 		this->endurance = 2 * this->level + 1;
 		this->agility = 1 * this->level + 1;
-		this->intelligence = 1 * this->level + 1;
+		this->intelligence = 1 * this->level;
 		this->luck = 1 * this->level + 1;
 		std::cout << R"(
 
@@ -99,7 +99,7 @@ void Enemy::setStats()
 	}
 	else if (this->monster_name == "Troll")
 	{
-		this->strength = 3 * this->level + 2;
+		this->strength = 3 * this->level + 1;
 		this->endurance = 2 * this->level;
 		this->agility = 1 * this->level + 1;
 		this->intelligence = 1 * this->level + 1;
@@ -174,7 +174,7 @@ void Enemy::setStats()
 	}
 	else if (this->monster_name == "Vampire")
 	{
-		this->strength = 2 * this->level + 2;
+		this->strength = 2 * this->level + 1;
 		this->endurance = 1 * this->level + 2;
 		this->agility = 2 * this->level + 2;
 		this->intelligence = 3 * this->level + 2;
@@ -222,8 +222,8 @@ void Enemy::setStats()
 	}
 	else if (this->monster_name == "Shoggoth")
 	{
-		this->strength = 1 * this->level + 2;
-		this->endurance = 3 * this->level + 1;
+		this->strength = 1 * this->level + 1;
+		this->endurance = 3 * this->level + 2;
 		this->agility = 1 * this->level + 1;
 		this->intelligence = 1 * this->level + 1;
 		this->luck = 1 * this->level + 1;
@@ -233,18 +233,18 @@ void Enemy::setStats()
 	}
 	else if (this->monster_name == "Fishman")
 	{
-		this->strength = 1 * this->level + 2;
+		this->strength = 2 * this->level + 1;
 		this->endurance = 1 * this->level + 1;
-		this->agility = 3 * this->level + 1;
-		this->intelligence = 1 * this->level + 1;
+		this->agility = 3 * this->level + 2;
+		this->intelligence = 1 * this->level + 2;
 		this->luck = 3 * this->level + 1;
 		std::cout << R"()" << std::endl;
 	}
 	else if (this->monster_name == "Centaur")
 	{
-		this->strength = 2 * this->level + 2;
-		this->endurance = 2 * this->level + 2;
-		this->agility = 2 * this->level + 1;
+		this->strength = 2 * this->level + 1;
+		this->endurance = 2 * this->level + 3;
+		this->agility = 2 * this->level + 2;
 		this->intelligence = 1 * this->level + 1;
 		this->luck = 2 * this->level + 1;
 		std::cout << R"(
@@ -273,8 +273,8 @@ void Enemy::setStats()
 	}
 	else if (this->monster_name == "Cerberus")
 	{
-		this->strength = 2 * this->level + 2;
-		this->endurance = 2 * this->level + 2;
+		this->strength = 3 * this->level + 2;
+		this->endurance = 2 * this->level + 1;
 		this->agility = 2 * this->level + 2;
 		this->intelligence = 1 * this->level + 1;
 		this->luck = 2 * this->level + 1;
@@ -293,11 +293,12 @@ void Enemy::setStats()
                 (,-(,(,(,/      \,),),) )" << std::endl;
 	}
 	else if (this->monster_name == "Harpy")
+
 	{
-		this->strength = 2 * this->level + 2;
-		this->endurance = 2 * this->level + 2;
-		this->agility = 2 * this->level + 2;
-		this->intelligence = 2 * this->level + 2;
+		this->strength = 2 * this->level + 1;
+		this->endurance = 2 * this->level + 1;
+		this->agility = 3 * this->level + 2;
+		this->intelligence = 2 * this->level + 1;
 		this->luck = 2 * this->level + 2;
 		std::cout << R"(
          ,                                      ,
