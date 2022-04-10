@@ -7,6 +7,7 @@
 class Game
 {
 private:
+	int points;
 	Player player;
 	Enemy enemy;
 	Maze* maze;
@@ -27,5 +28,6 @@ public:
 	int getPlayerHp();
 	void inventory();
 	void stats();
+	int getPoints();
 };
 

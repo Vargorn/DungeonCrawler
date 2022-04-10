@@ -41,5 +41,7 @@ int main() {
 	}
 	std::cout << "You Died!" << std::endl;
 	std::cout << "--------------------------" << std::endl;
+	std::cout << "You have earned " << game.getPoints() << " points" << std::endl;
+	std::cout << "--------------------------" << std::endl;
 	std::cout << "Game Over" << std::endl;
 }

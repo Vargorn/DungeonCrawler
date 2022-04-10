@@ -29,7 +29,7 @@ public:
 	int getXpTillNextLvl();
 	void setXp(int exp);
 	void openInventory();
-	void updateStats() override;
+	void updateBonusStats();
 	void reciveLoot(const unsigned int& a);
 	int getLuck() override;
 };

@@ -2,6 +2,7 @@
 #include "Game.h"
 
 Game::Game() {
+	this->points = 0;
 	this->initMonsterNames();
 	this->maze = new Maze(rand() % 4 + 3);
 }
@@ -83,6 +84,7 @@ void Game::battle() {
 	}
 	if (this->enemy.getHp()<= 0) {
 		this->player.setXp(this->player.getXp() + this->enemy.getXp());
+		this->points += this->enemy.getXp();
 		std::cout << "Enemy Killed!" << std::endl;
 		std::cout << "You've recieved " << this->enemy.getXp() << " experience" << std::endl;
 		std::cout << "--------------------------" << std::endl;
@@ -156,4 +158,9 @@ void Game::inventory()
 void Game::stats()
 {
 	this->player.showStats();
+}
+
+int Game::getPoints()
+{
+	return this->points;
 }

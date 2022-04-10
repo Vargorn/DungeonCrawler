@@ -41,13 +41,13 @@ void Player::levelUp() {
 	std::cout << "Level Up!" << std::endl;
 	std::cout << "--------------------------" << std::endl;
 	while (this->skill_points > 0) {
-		char atribute;
+		char attribute;
 		std::cout << "You have " << this->skill_points << " skill points" << std::endl;
 		std::cout << "Choose where to spend: \n s - strength \n e - endurance \n a - agility \n i - intelligence \n l - luck \n";
 		std::cout << "--------------------------" << std::endl;
-		std::cin >> atribute;
+		std::cin >> attribute;
 		std::cout << "--------------------------" << std::endl;
-		switch (atribute) {
+		switch (attribute) {
 			case 's': this->strength++; this->skill_points--; break;
 			case 'e': this->endurance++; this->skill_points--; break;
 			case 'a': this->agility++; this->skill_points--; break;
@@ -59,7 +59,6 @@ void Player::levelUp() {
 			}
 		}
 		this->updateStats();
-		this->setmsh();
 		this->showStats();
 	}
 }
@@ -165,7 +164,7 @@ void Player::openInventory()
 			std::cout << "You equiped ";
 			this->backpack[I(a) - 1].getInfo();
 			this->backpack.erase(this->backpack.begin() + I(a) - 1);
-			this->updateStats();
+			this->updateBonusStats();
 			return;
 		}
 		else if (I(a) == 0) {
@@ -178,7 +177,7 @@ void Player::openInventory()
 		
 	}
 }
-void Player::updateStats() 
+void Player::updateBonusStats() 
 {
 	this->bonus_strength = 0;
 	this->bonus_endurance = 0;
@@ -209,14 +208,6 @@ void Player::updateStats()
 			}
 		}
 	}
-	this->max_mana = this->level * 5 + (this->intelligence + this->bonus_intelligence)  * 5;
-	this->max_stamina = this->level * 5 + (this->strength + this->bonus_strength) * 5;
-	this->max_health = this->level * 5 + (this->endurance + this->bonus_endurance) * 5;
-	this->dodgeChance = (this->agility + this->bonus_agility) * 2;
-	this->critHit = (this->luck + this->bonus_luck);
-	this->healthRegen = this->level / 5;
-	this->staminaRegen = (this->endurance + this->bonus_endurance) / 2 + 1;
-	this->manaRegen = (this->intelligence + this->bonus_intelligence) / 2 + 1;
 }
 void Player::reciveLoot(const unsigned int& level)
 {

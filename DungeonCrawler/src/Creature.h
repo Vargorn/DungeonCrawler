@@ -27,7 +27,6 @@ public:
 	void wait();
 	//void castSpell();
 	//void useConsumable();
-	void setmsh();
 	void setHp(int health);
 	void setStamina(int stamina);
 	void setMana(int mana);

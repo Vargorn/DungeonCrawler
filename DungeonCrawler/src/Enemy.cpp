@@ -434,7 +434,6 @@ void Enemy::setStats()
 
 
 	this->updateStats();
-	this->setmsh();
 	this->showStats();
 
 }
@@ -492,5 +491,5 @@ void Enemy::takeAction(Creature& target)
 }
 int Enemy::getXp()
 {
-	return (this->strength + this->endurance + this->agility + this->intelligence + this->luck) * 1.5;
+	return (this->strength + this->endurance + this->agility + this->intelligence + this->luck) * 1.75;
 }		  

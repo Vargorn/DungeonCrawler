@@ -10,15 +10,13 @@ void Creature::updateStats() {
 	this->healthRegen = this->level / 4;
 	this->staminaRegen = this->endurance / 2 + 1;
 	this->manaRegen = this->intelligence / 2 + 1;
+	this->mana = this->max_mana;
+	this->stamina = this->max_stamina;
+	this->health = this->max_health;
 }
 void Creature::wait() {
 	this->regen();
 	this->regen();
-}
-void Creature::setmsh() {
-	this->mana = this->max_mana;
-	this->stamina = this->max_stamina;
-	this->health = this->max_health;
 }
 void Creature::regen()
 {
