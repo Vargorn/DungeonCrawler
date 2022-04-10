@@ -208,6 +208,14 @@ void Player::updateBonusStats()
 			}
 		}
 	}
+	this->max_mana = this->level * 5 + (this->intelligence + this->bonus_intelligence) * 5;
+	this->max_stamina = this->level * 5 + (this->strength + this->bonus_strength) * 5;
+	this->max_health = this->level * 5 + (this->endurance + this->bonus_endurance) * 5;
+	this->dodgeChance = (this->agility + this->bonus_agility) * 2;
+	this->critHit = this->luck + this->bonus_agility;
+	this->healthRegen = this->level / 4;
+	this->staminaRegen = (this->endurance + this->bonus_endurance) / 2 + 1;
+	this->manaRegen = (this->intelligence + this->bonus_intelligence) / 2 + 1;
 }
 void Player::reciveLoot(const unsigned int& level)
 {
